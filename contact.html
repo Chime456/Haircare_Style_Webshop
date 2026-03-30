@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact | Haircare Style Shop</title>
+    <meta name="description" content="Contact the Haircare Style Shop team with a subject dropdown and a message form." />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!-- Newsletter popup (CSS-only) -->
+<input id="newsletter-popup" class="newsletter-toggle" type="checkbox" checked aria-hidden="true" />
+<label for="newsletter-popup" class="newsletter-overlay" aria-hidden="true"></label>
+<section class="newsletter-popup" aria-label="Newsletter signup popup" role="dialog" aria-modal="true">
+    <div class="popup-head">
+        <div>
+            <h2 class="popup-title">Join the newsletter</h2>
+            <p class="popup-sub">Get promotions, restocks, and trending routines. No spam.</p>
+        </div>
+        <label for="newsletter-popup" class="popup-close" aria-label="Close newsletter popup">✕</label>
+    </div>
+    <form class="popup-form" action="mailto:hello@haircare-style.test" method="post" enctype="text/plain">
+        <div class="field">
+            <label for="newsletter-email-popup-contact">Email</label>
+            <input id="newsletter-email-popup-contact" type="email" name="email" required placeholder="you@example.com" />
+        </div>
+        <button class="primary" type="submit">Subscribe</button>
+    </form>
+</section>
+
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo" aria-label="Haircare Style Shop">
+            <span class="logo-mark" aria-hidden="true"></span>
+            <div>
+                <div class="logo-name">Haircare Style</div>
+                <div class="logo-sub">Brands for your texture</div>
+            </div>
+        </div>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="styling-guide.html">Styling Guide</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="brands.html">Brands</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main id="content" class="container">
+    <section class="hero-card" style="padding:18px 18px;">
+        <div class="hero-kicker">Contact</div>
+        <h1 style="margin:10px 0 0; font-size:40px; letter-spacing:-.02em;">We’d love to help</h1>
+        <p class="hero-lead" style="margin-top:10px;">
+            Questions about products, orders, or recommendations? Send us a message and choose a subject.
+        </p>
+    </section>
+
+    <section class="grid" aria-label="Team and contact form">
+        <article class="card" style="grid-column: span 5;">
+            <div class="card-media">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c172a1ee64?auto=format&fit=crop&w=1200&q=60" alt="Team member portrait" />
+            </div>
+            <div class="card-body">
+                <div class="meta-row"><span class="badge">Team</span><span>Texture-first support</span></div>
+                <div class="product-title">Meet the crew</div>
+                <p class="popup-sub" style="margin:0;">
+                    We curate brands for straight, wavy, curly, coily, and fine hair. Tell us your goals and we’ll point you to the best match.
+                </p>
+            </div>
+        </article>
+
+        <article class="panel" style="grid-column: span 7;">
+            <h3>Contact form</h3>
+            <form action="mailto:support@haircare-style.test" method="post" enctype="text/plain">
+                <div class="order-grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="field">
+                        <label for="c-name">Full name</label>
+                        <input id="c-name" type="text" name="name" required />
+                    </div>
+                    <div class="field">
+                        <label for="c-email">Email</label>
+                        <input id="c-email" type="email" name="email" required />
+                    </div>
+                    <div class="field full">
+                        <label for="c-subject">Subject</label>
+                        <select id="c-subject" name="subject" required>
+                            <option value="Order question">Order question</option>
+                            <option value="Product recommendation">Product recommendation</option>
+                            <option value="Shipping & delivery">Shipping & delivery</option>
+                            <option value="Returns & refunds">Returns & refunds</option>
+                            <option value="Newsletter">Newsletter</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="field full">
+                        <label for="c-message">Message</label>
+                        <textarea id="c-message" name="message" required placeholder="Write your message here..."></textarea>
+                    </div>
+                    <div class="full">
+                        <button class="primary" type="submit">Send message</button>
+                        <p class="popup-sub" style="margin:10px 0 0;">
+                            Demo contact: opens your email client and includes the selected subject.
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </article>
+    </section>
+
+    <section class="section-title">
+        <h2>Quick contact</h2>
+        <p>Prefer to browse?</p>
+    </section>
+
+    <section class="side-by-side" aria-label="Quick links">
+        <div class="panel">
+            <h3>Common topics</h3>
+            <div class="list">
+                <a href="products.html"><span>Order & pricing</span><span>Products</span></a>
+                <a href="quiz.html"><span>Find my match</span><span>Quiz</span></a>
+                <a href="styling-guide.html"><span>Watch routines</span><span>Styling Guide</span></a>
+            </div>
+        </div>
+        <div class="panel">
+            <h3>Shop info</h3>
+            <p class="popup-sub" style="margin:0;">
+                Email: support@haircare-style.test<br />
+                Hours: Mon–Fri, 9:00–17:00
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <div>
+            <p style="font-weight:800; color:var(--text);">Haircare Style Shop</p>
+            <p>Contact us anytime.</p>
+        </div>
+        <div class="footer-links" aria-label="Footer links">
+            <a href="products.html">Products</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="styling-guide.html">Styling Guide</a>
+            <a href="brands.html">Brands</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+

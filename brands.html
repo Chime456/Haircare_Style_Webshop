@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brands | Haircare Style Shop</title>
+    <meta name="description" content="Browse haircare and styling brands by price tier (cheap to luxury) and trend level (trending vs non-trending)." />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!-- Newsletter popup (CSS-only) -->
+<input id="newsletter-popup" class="newsletter-toggle" type="checkbox" checked aria-hidden="true" />
+<label for="newsletter-popup" class="newsletter-overlay" aria-hidden="true"></label>
+<section class="newsletter-popup" aria-label="Newsletter signup popup" role="dialog" aria-modal="true">
+    <div class="popup-head">
+        <div>
+            <h2 class="popup-title">Join the newsletter</h2>
+            <p class="popup-sub">Get promotions, restocks, and trending routines. No spam.</p>
+        </div>
+        <label for="newsletter-popup" class="popup-close" aria-label="Close newsletter popup">✕</label>
+    </div>
+    <form class="popup-form" action="mailto:hello@haircare-style.test" method="post" enctype="text/plain">
+        <div class="field">
+            <label for="newsletter-email-popup-brands">Email</label>
+            <input id="newsletter-email-popup-brands" type="email" name="email" required placeholder="you@example.com" />
+        </div>
+        <button class="primary" type="submit">Subscribe</button>
+    </form>
+</section>
+
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo" aria-label="Haircare Style Shop">
+            <span class="logo-mark" aria-hidden="true"></span>
+            <div>
+                <div class="logo-name">Haircare Style</div>
+                <div class="logo-sub">Brands for your texture</div>
+            </div>
+        </div>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="styling-guide.html">Styling Guide</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="brands.html">Brands</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main id="content" class="container">
+    <section class="hero-card" style="padding:18px 18px;">
+        <div class="hero-kicker">Brand directory</div>
+        <h1 style="margin:10px 0 0; font-size:40px; letter-spacing:-.02em;">Haircare brands</h1>
+        <p class="hero-lead" style="margin-top:10px;">
+            Sorted from cheap to expensive. Each card also shows whether the brand is trending or currently less viral.
+        </p>
+    </section>
+
+    <section class="side-by-side" aria-label="Brand legend">
+        <div class="panel">
+            <h3>How to read this</h3>
+            <p class="popup-sub" style="margin:0;">
+                Price tier = typical product pricing. Trend level = what’s getting the most social attention right now.
+            </p>
+        </div>
+        <div class="panel">
+            <h3>Legend</h3>
+            <div class="chips" style="margin-top:10px;">
+                <span class="chip">Cheap to Mid</span>
+                <span class="chip">Premium to Luxury</span>
+                <span class="chip">Trending</span>
+                <span class="chip">Non-trending</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-title">
+        <h2>24 brands (texture-first)</h2>
+        <p>Straight, wavy, curly, coily, fine.</p>
+    </section>
+
+    <div class="brands-grid" aria-label="Brands grid">
+        <!-- Cheap tier -->
+        <article class="brand-card">
+            <h3>SilkStraight</h3>
+            <p>Heat protection + sleek finishing for smooth styles.</p>
+            <div class="mini-meta">
+                <span class="badge">Cheap</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Straight</p>
+            <a class="link-btn primary" href="product.html#p-heat-protectant" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
+        </article>
+
+        <article class="brand-card">
+            <h3>ScalpCalm</h3>
+            <p>Gentle detox and scalp comfort.</p>
+            <div class="mini-meta">
+                <span class="badge">Cheap</span><span class="badge">Non-trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Straight / Oily scalp routines</p>
+            <a class="link-btn primary" href="product.html#p-detox-shampoo" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
+        </article>
+
+        <article class="brand-card">
+            <h3>FineBloom</h3>
+            <p>Soft volume and weightless styling foam.</p>
+            <div class="mini-meta">
+                <span class="badge">Cheap</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Fine / Thin</p>
+            <a class="link-btn primary" href="product.html#p-volume-foam" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
+        </article>
+
+        <article class="brand-card">
+            <h3>KnotZero</h3>
+            <p>Detangling basics and everyday slip.</p>
+            <div class="mini-meta">
+                <span class="badge">Cheap</span><span class="badge">Non-trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Straight / Wavy</p>
+        </article>
+
+        <article class="brand-card">
+            <h3>GlossFresh</h3>
+            <p>Daily gloss refreshers and serum finishes.</p>
+            <div class="mini-meta">
+                <span class="badge">Cheap</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy</p>
+        </article>
+
+        <article class="brand-card">
+            <h3>WaveBudget</h3>
+            <p>Air-dry friendly waves, light hold only.</p>
+            <div class="mini-meta">
+                <span class="badge">Cheap</span><span class="badge">Non-trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy</p>
+        </article>
+
+        <!-- Mid tier -->
+        <article class="brand-card">
+            <h3>ManeWave</h3>
+            <p>Sea mist textures and flexible hold.</p>
+            <div class="mini-meta">
+                <span class="badge">Mid</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy</p>
+            <a class="link-btn primary" href="product.html#p-sea-mist" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
+        </article>
+
+        <article class="brand-card">
+            <h3>CurlCraft</h3>
+            <p>Cocoa curl creams and definition-focused styling.</p>
+            <div class="mini-meta">
+                <span class="badge">Mid</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Curly</p>
+            <a class="link-btn primary" href="product.html#p-cocoa-curl-cream" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
+        </article>
+
+        <article class="brand-card">
+            <h3>StraightLine</h3>
+            <p>Sleek gel and brushable control.</p>
+            <div class="mini-meta">
+                <span class="badge">Mid</span><span class="badge">Non-trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Straight</p>
+            <a class="link-btn primary" href="product.html#p-sleek-gel" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
+        </article>
+
+        <article class="brand-card">
+            <h3>CurlLab</h3>
+            <p>Define & hold gels for touchable curls.</p>
+            <div class="mini-meta">
+                <span class="badge">Mid</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Curly</p>
+            <a class="link-btn primary" href="product.html#p-define-hold-gel" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
+        </article>
+
+        <article class="brand-card">
+            <h3>HeatHalo</h3>
+            <p>Heat protectants and polish sprays.</p>
+            <div class="mini-meta">
+                <span class="badge">Mid</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Straight + Wavy blowouts</p>
+        </article>
+
+        <article class="brand-card">
+            <h3>FrizzFree Co.</h3>
+            <p>Anti-frizz milks for everyday control.</p>
+            <div class="mini-meta">
+                <span class="badge">Mid</span><span class="badge">Non-trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy / Humidity</p>
+        </article>
+
+        <article class="brand-card">
+            <h3>HydrateHub</h3>
+            <p>Deep hydration + light styling.</p>
+            <div class="mini-meta">
+                <span class="badge">Mid</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Curly + Coily</p>
+        </article>
+
+        <article class="brand-card">
+            <h3>VolumeVibe</h3>
+            <p>Root lift mousses and gentle body products.</p>
+            <div class="mini-meta">
+                <span class="badge">Mid</span><span class="badge">Non-trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Fine / Thin</p>
+        </article>
+
+        <!-- Premium tier -->
+        <article class="brand-card">
+            <h3>CoilyKind</h3>
+            <p>Moisture oils for twist routines.</p>
+            <div class="mini-meta">
+                <span class="badge">Premium</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Coily</p>
+            <a class="link-btn primary" href="product.html#p-revive-oil" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
+        </article>
+
+        <article class="brand-card">
+            <h3>RepairRoot</h3>
+            <p>Protein masks for stronger curls.</p>
+            <div class="mini-meta">
+                <span class="badge">Premium</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Curly / Coily</p>
+            <a class="link-btn primary" href="product.html#p-protein-mask" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
+        </article>
+
+        <article class="brand-card">
+            <h3>LuxLather</h3>
+            <p>Sulfate-free shampoo for balanced waves.</p>
+            <div class="mini-meta">
+                <span class="badge">Premium</span><span class="badge">Non-trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy</p>
+            <a class="link-btn primary" href="product.html#p-sulfate-free-shampoo" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
+        </article>
+
+        <article class="brand-card">
+            <h3>CurlSerum Labs</h3>
+            <p>Serums for shine and softness.</p>
+            <div class="mini-meta">
+                <span class="badge">Premium</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Curly + Wavy</p>
+        </article>
+
+        <article class="brand-card">
+            <h3>SmoothWave Pro</h3>
+            <p>Milk leave-ins for silky movement.</p>
+            <div class="mini-meta">
+                <span class="badge">Premium</span><span class="badge">Non-trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy</p>
+        </article>
+
+        <article class="brand-card">
+            <h3>Seed&Silk</h3>
+            <p>Hydration-focused daily conditioners.</p>
+            <div class="mini-meta">
+                <span class="badge">Premium</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Coily + Curly</p>
+        </article>
+
+        <!-- Luxury tier -->
+        <article class="brand-card">
+            <h3>KinkCare</h3>
+            <p>Twist butter for luxury-definition coily styles.</p>
+            <div class="mini-meta">
+                <span class="badge">Luxury</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Coily</p>
+            <a class="link-btn primary" href="product.html#p-twist-butter" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
+        </article>
+
+        <article class="brand-card">
+            <h3>VelvetCrown</h3>
+            <p>High-end smoothing creams (classic finish).</p>
+            <div class="mini-meta">
+                <span class="badge">Luxury</span><span class="badge">Non-trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Straight / Wavy</p>
+        </article>
+
+        <article class="brand-card">
+            <h3>ObsidianGlow</h3>
+            <p>Shine serums and glossy styling oils.</p>
+            <div class="mini-meta">
+                <span class="badge">Luxury</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy + Fine ends</p>
+        </article>
+
+        <article class="brand-card" style="grid-column: span 3;">
+            <h3>CrownCare Couture</h3>
+            <p>Care lines designed for low-manipulation routines.</p>
+            <div class="mini-meta">
+                <span class="badge">Luxury</span><span class="badge">Non-trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Curly + Coily</p>
+        </article>
+
+        <!-- Remaining stocked premium/mid brands for the required 12 products -->
+        <article class="brand-card">
+            <h3>GlossGuard</h3>
+            <p>Anti-frizz serum + viral shine.</p>
+            <div class="mini-meta">
+                <span class="badge">Mid</span><span class="badge">Trending</span>
+            </div>
+            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy</p>
+            <a class="link-btn primary" href="product.html#p-anti-frizz-serum" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
+        </article>
+    </div>
+
+    <section class="section-title" style="margin-top:26px;">
+        <h2>Need recommendations?</h2>
+        <p>Take the quiz for your best match.</p>
+    </section>
+    <div class="panel">
+        <div class="side-by-side">
+            <div>
+                <h3>Your hairtype quiz</h3>
+                <p class="popup-sub" style="margin:0;">Get a best-choice product recommendation based on your texture.</p>
+            </div>
+            <div>
+                <a class="btn primary" href="quiz.html">Start quiz</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <div>
+            <p style="font-weight:800; color:var(--text);">Haircare Style Shop</p>
+            <p>Cheap to luxury brands with a texture-first quiz.</p>
+        </div>
+        <div class="footer-links" aria-label="Footer links">
+            <a href="products.html">Products</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="styling-guide.html">Styling Guide</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+

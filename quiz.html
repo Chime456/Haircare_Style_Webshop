@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Haircare Quiz | Haircare Style Shop</title>
+    <meta name="description" content="Quiz to find the best haircare + styling match for your hairtype." />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!-- Newsletter popup (CSS-only) -->
+<input id="newsletter-popup" class="newsletter-toggle" type="checkbox" checked aria-hidden="true" />
+<label for="newsletter-popup" class="newsletter-overlay" aria-hidden="true"></label>
+<section class="newsletter-popup" aria-label="Newsletter signup popup" role="dialog" aria-modal="true">
+    <div class="popup-head">
+        <div>
+            <h2 class="popup-title">Join the newsletter</h2>
+            <p class="popup-sub">Get promotions, restocks, and trending routines. No spam.</p>
+        </div>
+        <label for="newsletter-popup" class="popup-close" aria-label="Close newsletter popup">✕</label>
+    </div>
+    <form class="popup-form" action="mailto:hello@haircare-style.test" method="post" enctype="text/plain">
+        <div class="field">
+            <label for="newsletter-email-popup-quiz">Email</label>
+            <input id="newsletter-email-popup-quiz" type="email" name="email" required placeholder="you@example.com" />
+        </div>
+        <button class="primary" type="submit">Subscribe</button>
+    </form>
+</section>
+
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo" aria-label="Haircare Style Shop">
+            <span class="logo-mark" aria-hidden="true"></span>
+            <div>
+                <div class="logo-name">Haircare Style</div>
+                <div class="logo-sub">Brands for your texture</div>
+            </div>
+        </div>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="styling-guide.html">Styling Guide</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="brands.html">Brands</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main id="content" class="container">
+    <section class="hero-card quiz-intro">
+        <div class="hero-kicker">Hairtype quiz</div>
+        <h1 class="hero-title" style="font-size:38px; margin-top:12px;">Find your best match</h1>
+        <p class="hero-lead" style="margin-top:10px;">
+            Pick your hairtype. We’ll show the haircare + styling pick that fits your texture and routine goals.
+        </p>
+    </section>
+
+    <form class="quiz-form" action="#" method="get">
+        <!-- Radios must be siblings of .quiz-results for CSS-only reveal -->
+        <input type="radio" name="hairtype" id="q-straight" checked />
+        <input type="radio" name="hairtype" id="q-wavy" />
+        <input type="radio" name="hairtype" id="q-curly" />
+        <input type="radio" name="hairtype" id="q-coily" />
+        <input type="radio" name="hairtype" id="q-fine" />
+
+        <div class="quiz-options" aria-label="Quiz options">
+            <h2 style="margin:0; font-size:16px;">Your hairtype</h2>
+            <div class="radio-grid">
+                <label class="radio-choice" for="q-straight">
+                    <span style="font-weight:850;">Straight</span>
+                    <span style="color:var(--muted); font-size:13px;">Sleek, smooth, low frizz</span>
+                </label>
+                <label class="radio-choice" for="q-wavy">
+                    <span style="font-weight:850;">Wavy</span>
+                    <span style="color:var(--muted); font-size:13px;">Body + light hold</span>
+                </label>
+                <label class="radio-choice" for="q-curly">
+                    <span style="font-weight:850;">Curly</span>
+                    <span style="color:var(--muted); font-size:13px;">Definition + bounce</span>
+                </label>
+                <label class="radio-choice" for="q-coily">
+                    <span style="font-weight:850;">Coily</span>
+                    <span style="color:var(--muted); font-size:13px;">Moisture + twist support</span>
+                </label>
+                <label class="radio-choice" for="q-fine">
+                    <span style="font-weight:850;">Fine / Thin</span>
+                    <span style="color:var(--muted); font-size:13px;">Volume without weight</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="quiz-results" aria-live="polite">
+            <article class="quiz-result straight">
+                <h2 style="margin:0; font-size:18px;">Match for Straight hair</h2>
+                <p class="popup-sub" style="margin:10px 0 0;">Best choice: heat protection + a clean sleek finish.</p>
+                <div class="side-by-side" style="margin-top:12px; grid-template-columns: 1fr 1fr;">
+                    <div>
+                        <img
+                                src="https://images.unsplash.com/photo-1533740771643-3c7db3f42f3b?auto=format&fit=crop&w=800&q=60"
+                                alt="Straight hair style product"
+                        />
+                    </div>
+                    <div>
+                        <div class="specs">
+                            <span class="badge">Brand: SilkStraight</span>
+                            <span class="badge">Type: Heat Protectant</span>
+                        </div>
+                        <p class="desc">
+                            <strong>SilkStraight Heat Protectant Spray</strong> helps you style with less dryness and fewer flyaways.
+                        </p>
+                        <div class="detail-actions">
+                            <a class="link-btn primary" href="product.html#p-heat-protectant">Open product</a>
+                            <a class="link-btn" href="products.html">Browse more</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="quiz-result wavy">
+                <h2 style="margin:0; font-size:18px;">Match for Wavy hair</h2>
+                <p class="popup-sub" style="margin:10px 0 0;">Best choice: airy texture + flexible hold.</p>
+                <div class="side-by-side" style="margin-top:12px; grid-template-columns: 1fr 1fr;">
+                    <div>
+                        <img
+                                src="https://images.unsplash.com/photo-1556906781-9a58d3d4b6b8?auto=format&fit=crop&w=800&q=60"
+                                alt="Wavy hair product on a neutral background"
+                        />
+                    </div>
+                    <div>
+                        <div class="specs">
+                            <span class="badge">Brand: ManeWave</span>
+                            <span class="badge">Type: Sea Mist</span>
+                        </div>
+                        <p class="desc">
+                            <strong>ManeWave Sea Mist</strong> boosts movement and keeps waves soft (not crunchy).
+                        </p>
+                        <div class="detail-actions">
+                            <a class="link-btn primary" href="product.html#p-sea-mist">Open product</a>
+                            <a class="link-btn" href="products.html">Browse more</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="quiz-result curly">
+                <h2 style="margin:0; font-size:18px;">Match for Curly hair</h2>
+                <p class="popup-sub" style="margin:10px 0 0;">Best choice: creamy definition with humidity control.</p>
+                <div class="side-by-side" style="margin-top:12px; grid-template-columns: 1fr 1fr;">
+                    <div>
+                        <img
+                                src="https://images.unsplash.com/photo-1520975693416-35a3a6b7f7e0?auto=format&fit=crop&w=800&q=60"
+                                alt="Curly hair care product"
+                        />
+                    </div>
+                    <div>
+                        <div class="specs">
+                            <span class="badge">Brand: CurlCraft</span>
+                            <span class="badge">Type: Curl Cream</span>
+                        </div>
+                        <p class="desc">
+                            <strong>CurlCraft Cocoa Curl Cream</strong> supports bounce, helps reduce frizz, and defines curls.
+                        </p>
+                        <div class="detail-actions">
+                            <a class="link-btn primary" href="product.html#p-cocoa-curl-cream">Open product</a>
+                            <a class="link-btn" href="products.html">Browse more</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="quiz-result coily">
+                <h2 style="margin:0; font-size:18px;">Match for Coily hair</h2>
+                <p class="popup-sub" style="margin:10px 0 0;">Best choice: deep moisture and twist support.</p>
+                <div class="side-by-side" style="margin-top:12px; grid-template-columns: 1fr 1fr;">
+                    <div>
+                        <img
+                                src="https://images.unsplash.com/photo-1542903660-97df1d07a5b6?auto=format&fit=crop&w=800&q=60"
+                                alt="Hair oil product concept"
+                        />
+                    </div>
+                    <div>
+                        <div class="specs">
+                            <span class="badge">Brand: CoilyKind</span>
+                            <span class="badge">Type: Hair Oil</span>
+                        </div>
+                        <p class="desc">
+                            <strong>CoilyKind Revive Hair Oil</strong> seals in moisture and gives your twists a smooth finish.
+                        </p>
+                        <div class="detail-actions">
+                            <a class="link-btn primary" href="product.html#p-revive-oil">Open product</a>
+                            <a class="link-btn" href="products.html">Browse more</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="quiz-result fine">
+                <h2 style="margin:0; font-size:18px;">Match for Fine / Thin hair</h2>
+                <p class="popup-sub" style="margin:10px 0 0;">Best choice: lift + flexible volume.</p>
+                <div class="side-by-side" style="margin-top:12px; grid-template-columns: 1fr 1fr;">
+                    <div>
+                        <img
+                                src="https://images.unsplash.com/photo-1520975869018-0b3b1e1b07f9?auto=format&fit=crop&w=800&q=60"
+                                alt="Fine hair volume concept"
+                        />
+                    </div>
+                    <div>
+                        <div class="specs">
+                            <span class="badge">Brand: FineBloom</span>
+                            <span class="badge">Type: Volume Foam</span>
+                        </div>
+                        <p class="desc">
+                            <strong>FineBloom Volume Foam</strong> gives soft lift without weighing your roots down.
+                        </p>
+                        <div class="detail-actions">
+                            <a class="link-btn primary" href="product.html#p-volume-foam">Open product</a>
+                            <a class="link-btn" href="products.html">Browse more</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </form>
+
+    <section class="section-title" style="margin-top:26px;">
+        <h2>Next step</h2>
+        <p>Open the recommended product and order directly.</p>
+    </section>
+    <div class="panel">
+        <div class="side-by-side">
+            <div>
+                <h3>Order in seconds</h3>
+                <p class="popup-sub" style="margin:0;">
+                    Each product detail includes an order form (HTML only). It’s set up for an order email flow.
+                </p>
+            </div>
+            <div>
+                <a class="btn primary" href="product.html#p-volume-foam">See detail page</a>
+                <p class="popup-sub" style="margin-top:10px;">Tip: use the product switcher on that page.</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <div>
+            <p style="font-weight:800; color:var(--text);">Haircare Style Shop</p>
+            <p>Minimal grey-white webshop demo.</p>
+        </div>
+        <div class="footer-links" aria-label="Footer links">
+            <a href="products.html">Products</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="styling-guide.html">Styling Guide</a>
+            <a href="contact.html">Contact</a>
+            <a href="brands.html">Brands</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
