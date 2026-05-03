@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bestellung bestätigt | Care To Style</title>
+    <meta name="description" content="Vielen Dank für deine Bestellung bei Care To Style." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<a class="skip-link" href="#content">Zum Inhalt</a>
+
+<div class="top-banner">Kostenloser Versand ab CHF 50</div>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <span class="logo-mark" aria-hidden="true"></span>
+            <span class="logo-name">Care To Style</span>
+        </div>
+        <nav class="main-nav" aria-label="Hauptnavigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Produkte</a></li>
+                <li><a href="brands.html">Marken</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="cart.html" class="cart-icon" aria-label="Warenkorb">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                <span class="cart-badge" id="cart-count">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main id="content">
+    <section class="section">
+        <div class="container">
+            <div class="thankyou-page">
+                <div class="thankyou-icon">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <h1>Vielen Dank für deine Bestellung!</h1>
+                <p>Deine Bestellung wurde erfolgreich aufgegeben. Wir werden uns schnellstmöglich bei dir melden, um die weiteren Schritte zu besprechen.</p>
+                <a href="products.html" class="btn btn-primary">Weiter einkaufen</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Care To Style</h3>
+                <a href="index.html">Home</a>
+                <a href="products.html">Produkte</a>
+                <a href="brands.html">Marken</a>
+                <a href="contact.html">Kontakt</a>
+            </div>
+            <div class="footer-col">
+                <h4>Zahlungsmethoden</h4>
+                <div class="payment-methods">
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>TWINT</span>
+                    <span>PostFinance</span>
+                    <span>PayPal</span>
+                    <span>Rechnung</span>
+                    <span>Vorauskasse</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Service</h4>
+                <a href="contact.html">Kontakt</a>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Care To Style.</p></div>
+    </div>
+</footer>
+<script src="cart.js"></script>
+<script>
+    localStorage.removeItem('cts-cart');
+</script>
+</body>
+</html>

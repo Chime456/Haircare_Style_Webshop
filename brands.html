@@ -1,364 +1,192 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Brands | Haircare Style Shop</title>
-    <meta name="description" content="Browse haircare and styling brands by price tier (cheap to luxury) and trend level (trending vs non-trending)." />
-    <link rel="stylesheet" href="styles.css" />
+    <title>Marken | Care To Style</title>
+    <meta name="description" content="Entdecke unsere Marken: Olaplex, Kérastase, Wella Professionals, Goldwell, Sebastian, L'Oréal Professionnel und mehr." />
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<!-- Newsletter popup (CSS-only) -->
-<input id="newsletter-popup" class="newsletter-toggle" type="checkbox" checked aria-hidden="true" />
-<label for="newsletter-popup" class="newsletter-overlay" aria-hidden="true"></label>
-<section class="newsletter-popup" aria-label="Newsletter signup popup" role="dialog" aria-modal="true">
-    <div class="popup-head">
-        <div>
-            <h2 class="popup-title">Join the newsletter</h2>
-            <p class="popup-sub">Get promotions, restocks, and trending routines. No spam.</p>
-        </div>
-        <label for="newsletter-popup" class="popup-close" aria-label="Close newsletter popup">✕</label>
-    </div>
-    <form class="popup-form" action="mailto:hello@haircare-style.test" method="post" enctype="text/plain">
-        <div class="field">
-            <label for="newsletter-email-popup-brands">Email</label>
-            <input id="newsletter-email-popup-brands" type="email" name="email" required placeholder="you@example.com" />
-        </div>
-        <button class="primary" type="submit">Subscribe</button>
-    </form>
-</section>
+<a class="skip-link" href="#content">Zum Inhalt</a>
 
-<a class="skip-link" href="#content">Skip to content</a>
+<div class="top-banner">Kostenloser Versand ab CHF 50</div>
 
 <header>
     <div class="container header-inner">
-        <div class="logo" aria-label="Haircare Style Shop">
-            <span class="logo-mark" aria-hidden="true"></span>
-            <div>
-                <div class="logo-name">Haircare Style</div>
-                <div class="logo-sub">Brands for your texture</div>
-            </div>
+        <div class="logo">
+            <span class="logo-name">Care To Style</span>
         </div>
-        <nav aria-label="Main navigation">
+        <nav class="main-nav" aria-label="Hauptnavigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="styling-guide.html">Styling Guide</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="brands.html">Brands</a></li>
+                <li><a href="products.html">Produkte</a></li>
+                <li><a href="brands.html" class="active">Marken</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <a href="cart.html" class="cart-icon" aria-label="Warenkorb">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                <span class="cart-badge" id="cart-count">0</span>
+            </a>
+        </div>
     </div>
 </header>
 
-<main id="content" class="container">
-    <section class="hero-card" style="padding:18px 18px;">
-        <div class="hero-kicker">Brand directory</div>
-        <h1 style="margin:10px 0 0; font-size:40px; letter-spacing:-.02em;">Haircare brands</h1>
-        <p class="hero-lead" style="margin-top:10px;">
-            Sorted from cheap to expensive. Each card also shows whether the brand is trending or currently less viral.
-        </p>
-    </section>
+<main id="content">
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title">Unsere Marken</h1>
+            <p class="section-subtitle">Premium-Marken aus unserem Sortiment.</p>
 
-    <section class="side-by-side" aria-label="Brand legend">
-        <div class="panel">
-            <h3>How to read this</h3>
-            <p class="popup-sub" style="margin:0;">
-                Price tier = typical product pricing. Trend level = what’s getting the most social attention right now.
-            </p>
-        </div>
-        <div class="panel">
-            <h3>Legend</h3>
-            <div class="chips" style="margin-top:10px;">
-                <span class="chip">Cheap to Mid</span>
-                <span class="chip">Premium to Luxury</span>
-                <span class="chip">Trending</span>
-                <span class="chip">Non-trending</span>
+            <div class="brand-grid">
+                <a href="products.html" class="brand-card">
+                    <div class="brand-logo"><img src="images/Olaplex_Logo.png" alt="Olaplex Logo" /></div>
+                    <div class="info">
+                        <h3>Olaplex</h3>
+                        <p>Bond Maintenance Technologie. Repariert Haarstruktur von innen. N° 4 Shampoo, N° 5 Conditioner, N° 7 Bonding Oil.</p>
+                    </div>
+                </a>
+                <a href="products.html" class="brand-card">
+                    <div class="brand-logo"><img src="images/kerastase-logo.png" alt="Kérastase Logo" /></div>
+                    <div class="info">
+                        <h3>Kérastase</h3>
+                        <p>Luxus-Haarpflege. Bain Satin, Bain Ultra-Violet, Défense Thermique, Fondant Renforçateur und mehr.</p>
+                    </div>
+                </a>
+                <a href="products.html" class="brand-card">
+                    <div class="brand-logo"><img src="images/wella-professionals-logo.jpg" alt="Wella Professionals Logo" /></div>
+                    <div class="info">
+                        <h3>Wella Professionals</h3>
+                        <p>EIMI Styling-Linie. Dynamic Fix Haarspray, Extra Volume Mousse, Sculpt Force Flubber und Pearl Styler.</p>
+                    </div>
+                </a>
+                <a href="products.html" class="brand-card">
+                    <div class="brand-logo">Goldwell</div>
+                    <div class="info">
+                        <h3>Goldwell</h3>
+                        <p>StyleSign Linie. Texture Lagoom Jam für definierten Halt mit mattem Finish.</p>
+                    </div>
+                </a>
+                <a href="products.html" class="brand-card">
+                    <div class="brand-logo">Sebastian</div>
+                    <div class="info">
+                        <h3>Sebastian</h3>
+                        <p>Professionelle Styling-Produkte. Re-shaper Haarspray für langanhaltenden Halt.</p>
+                    </div>
+                </a>
+                <a href="products.html" class="brand-card">
+                    <div class="brand-logo"><img src="images/l-oreal-professionnel-logo-png-transparent.png" alt="L'Oréal Professionnel Logo" /></div>
+                    <div class="info">
+                        <h3>L'Oréal Professionnel</h3>
+                        <p>Série Expert Linie. Keratin Alpha Sleek Treatment für geschmeidiges Haar.</p>
+                    </div>
+                </a>
+                <a href="products.html" class="brand-card">
+                    <div class="brand-logo"><img src="images/ghd-logo.png" alt="ghd Logo" /></div>
+                    <div class="info">
+                        <h3>ghd</h3>
+                        <p>Bodyguard Heat Protect Spray. Professioneller Hitzeschutz für alle Styling-Tools.</p>
+                    </div>
+                </a>
+                <a href="products.html" class="brand-card">
+                    <div class="brand-logo">ABC</div>
+                    <div class="info">
+                        <h3>Authentic Beauty Concept</h3>
+                        <p>Hydrate Linie. Hydrate Cleanser für sanfte Reinigung und Feuchtigkeit.</p>
+                    </div>
+                </a>
+                <a href="products.html" class="brand-card">
+                    <div class="brand-logo">Nanoil</div>
+                    <div class="info">
+                        <h3>Nanoil</h3>
+                        <p>100% natürliche Pflegeöle. Rizinusöl für Haarwachstum, Hautpflege und Nägel.</p>
+                    </div>
+                </a>
+                <a href="products.html" class="brand-card">
+                    <div class="brand-logo"><img src="images/Schwarzkopf-logo.jpg" alt="Schwarzkopf Professional Logo" /></div>
+                    <div class="info">
+                        <h3>Schwarzkopf Professional</h3>
+                        <p>BC Bonacure und OSiS+ Linie. The Salt Sea-Spray und Super Hold Gel Lac.</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="section-title">
-        <h2>24 brands (texture-first)</h2>
-        <p>Straight, wavy, curly, coily, fine.</p>
-    </section>
-
-    <div class="brands-grid" aria-label="Brands grid">
-        <!-- Cheap tier -->
-        <article class="brand-card">
-            <h3>SilkStraight</h3>
-            <p>Heat protection + sleek finishing for smooth styles.</p>
-            <div class="mini-meta">
-                <span class="badge">Cheap</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Straight</p>
-            <a class="link-btn primary" href="product.html#p-heat-protectant" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
-        </article>
-
-        <article class="brand-card">
-            <h3>ScalpCalm</h3>
-            <p>Gentle detox and scalp comfort.</p>
-            <div class="mini-meta">
-                <span class="badge">Cheap</span><span class="badge">Non-trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Straight / Oily scalp routines</p>
-            <a class="link-btn primary" href="product.html#p-detox-shampoo" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
-        </article>
-
-        <article class="brand-card">
-            <h3>FineBloom</h3>
-            <p>Soft volume and weightless styling foam.</p>
-            <div class="mini-meta">
-                <span class="badge">Cheap</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Fine / Thin</p>
-            <a class="link-btn primary" href="product.html#p-volume-foam" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
-        </article>
-
-        <article class="brand-card">
-            <h3>KnotZero</h3>
-            <p>Detangling basics and everyday slip.</p>
-            <div class="mini-meta">
-                <span class="badge">Cheap</span><span class="badge">Non-trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Straight / Wavy</p>
-        </article>
-
-        <article class="brand-card">
-            <h3>GlossFresh</h3>
-            <p>Daily gloss refreshers and serum finishes.</p>
-            <div class="mini-meta">
-                <span class="badge">Cheap</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy</p>
-        </article>
-
-        <article class="brand-card">
-            <h3>WaveBudget</h3>
-            <p>Air-dry friendly waves, light hold only.</p>
-            <div class="mini-meta">
-                <span class="badge">Cheap</span><span class="badge">Non-trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy</p>
-        </article>
-
-        <!-- Mid tier -->
-        <article class="brand-card">
-            <h3>ManeWave</h3>
-            <p>Sea mist textures and flexible hold.</p>
-            <div class="mini-meta">
-                <span class="badge">Mid</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy</p>
-            <a class="link-btn primary" href="product.html#p-sea-mist" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
-        </article>
-
-        <article class="brand-card">
-            <h3>CurlCraft</h3>
-            <p>Cocoa curl creams and definition-focused styling.</p>
-            <div class="mini-meta">
-                <span class="badge">Mid</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Curly</p>
-            <a class="link-btn primary" href="product.html#p-cocoa-curl-cream" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
-        </article>
-
-        <article class="brand-card">
-            <h3>StraightLine</h3>
-            <p>Sleek gel and brushable control.</p>
-            <div class="mini-meta">
-                <span class="badge">Mid</span><span class="badge">Non-trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Straight</p>
-            <a class="link-btn primary" href="product.html#p-sleek-gel" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
-        </article>
-
-        <article class="brand-card">
-            <h3>CurlLab</h3>
-            <p>Define & hold gels for touchable curls.</p>
-            <div class="mini-meta">
-                <span class="badge">Mid</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Curly</p>
-            <a class="link-btn primary" href="product.html#p-define-hold-gel" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
-        </article>
-
-        <article class="brand-card">
-            <h3>HeatHalo</h3>
-            <p>Heat protectants and polish sprays.</p>
-            <div class="mini-meta">
-                <span class="badge">Mid</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Straight + Wavy blowouts</p>
-        </article>
-
-        <article class="brand-card">
-            <h3>FrizzFree Co.</h3>
-            <p>Anti-frizz milks for everyday control.</p>
-            <div class="mini-meta">
-                <span class="badge">Mid</span><span class="badge">Non-trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy / Humidity</p>
-        </article>
-
-        <article class="brand-card">
-            <h3>HydrateHub</h3>
-            <p>Deep hydration + light styling.</p>
-            <div class="mini-meta">
-                <span class="badge">Mid</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Curly + Coily</p>
-        </article>
-
-        <article class="brand-card">
-            <h3>VolumeVibe</h3>
-            <p>Root lift mousses and gentle body products.</p>
-            <div class="mini-meta">
-                <span class="badge">Mid</span><span class="badge">Non-trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Fine / Thin</p>
-        </article>
-
-        <!-- Premium tier -->
-        <article class="brand-card">
-            <h3>CoilyKind</h3>
-            <p>Moisture oils for twist routines.</p>
-            <div class="mini-meta">
-                <span class="badge">Premium</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Coily</p>
-            <a class="link-btn primary" href="product.html#p-revive-oil" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
-        </article>
-
-        <article class="brand-card">
-            <h3>RepairRoot</h3>
-            <p>Protein masks for stronger curls.</p>
-            <div class="mini-meta">
-                <span class="badge">Premium</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Curly / Coily</p>
-            <a class="link-btn primary" href="product.html#p-protein-mask" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
-        </article>
-
-        <article class="brand-card">
-            <h3>LuxLather</h3>
-            <p>Sulfate-free shampoo for balanced waves.</p>
-            <div class="mini-meta">
-                <span class="badge">Premium</span><span class="badge">Non-trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy</p>
-            <a class="link-btn primary" href="product.html#p-sulfate-free-shampoo" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
-        </article>
-
-        <article class="brand-card">
-            <h3>CurlSerum Labs</h3>
-            <p>Serums for shine and softness.</p>
-            <div class="mini-meta">
-                <span class="badge">Premium</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Curly + Wavy</p>
-        </article>
-
-        <article class="brand-card">
-            <h3>SmoothWave Pro</h3>
-            <p>Milk leave-ins for silky movement.</p>
-            <div class="mini-meta">
-                <span class="badge">Premium</span><span class="badge">Non-trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy</p>
-        </article>
-
-        <article class="brand-card">
-            <h3>Seed&Silk</h3>
-            <p>Hydration-focused daily conditioners.</p>
-            <div class="mini-meta">
-                <span class="badge">Premium</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Coily + Curly</p>
-        </article>
-
-        <!-- Luxury tier -->
-        <article class="brand-card">
-            <h3>KinkCare</h3>
-            <p>Twist butter for luxury-definition coily styles.</p>
-            <div class="mini-meta">
-                <span class="badge">Luxury</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Coily</p>
-            <a class="link-btn primary" href="product.html#p-twist-butter" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
-        </article>
-
-        <article class="brand-card">
-            <h3>VelvetCrown</h3>
-            <p>High-end smoothing creams (classic finish).</p>
-            <div class="mini-meta">
-                <span class="badge">Luxury</span><span class="badge">Non-trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Straight / Wavy</p>
-        </article>
-
-        <article class="brand-card">
-            <h3>ObsidianGlow</h3>
-            <p>Shine serums and glossy styling oils.</p>
-            <div class="mini-meta">
-                <span class="badge">Luxury</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy + Fine ends</p>
-        </article>
-
-        <article class="brand-card" style="grid-column: span 3;">
-            <h3>CrownCare Couture</h3>
-            <p>Care lines designed for low-manipulation routines.</p>
-            <div class="mini-meta">
-                <span class="badge">Luxury</span><span class="badge">Non-trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Curly + Coily</p>
-        </article>
-
-        <!-- Remaining stocked premium/mid brands for the required 12 products -->
-        <article class="brand-card">
-            <h3>GlossGuard</h3>
-            <p>Anti-frizz serum + viral shine.</p>
-            <div class="mini-meta">
-                <span class="badge">Mid</span><span class="badge">Trending</span>
-            </div>
-            <p class="popup-sub" style="margin-top:10px;">Best for: Wavy</p>
-            <a class="link-btn primary" href="product.html#p-anti-frizz-serum" style="margin-top:10px; width:100%; justify-content:center;">View stocked product</a>
-        </article>
-    </div>
-
-    <section class="section-title" style="margin-top:26px;">
-        <h2>Need recommendations?</h2>
-        <p>Take the quiz for your best match.</p>
-    </section>
-    <div class="panel">
-        <div class="side-by-side">
-            <div>
-                <h3>Your hairtype quiz</h3>
-                <p class="popup-sub" style="margin:0;">Get a best-choice product recommendation based on your texture.</p>
-            </div>
-            <div>
-                <a class="btn primary" href="quiz.html">Start quiz</a>
+    <section class="section brand-cats">
+        <div class="container">
+            <h2 class="section-title">Haartypen Guide</h2>
+            <p class="section-subtitle">Finde die richtige Pflege für deinen Haartyp.</p>
+            <div class="brand-grid">
+                <div class="brand-card">
+                    <h3>Glattes Haar</h3>
+                    <p>Braucht leichte Pflege ohne zu beschweren. Shampoo und Conditioner mit Glanz-Effekt. Vermeide schwere Öle.</p>
+                </div>
+                <div class="brand-card">
+                    <h3>Welliges Haar</h3>
+                    <p>Benötigt Feuchtigkeit und Definition. Leave-in Conditioner und Mousse unterstützen die natürliche Welle.</p>
+                </div>
+                <div class="brand-card">
+                    <h3>Lockiges Haar</h3>
+                    <p>Intensive Feuchtigkeit ist key. Curl Manifesto Linie, Masken und Leave-in Cremes definieren die Locken.</p>
+                </div>
+                <div class="brand-card">
+                    <h3>Krauses Haar</h3>
+                    <p>Benötigt maximale Hydration und Bond-Repair. Olaplex System, Rich Hydration Mask und Haaröle.</p>
+                </div>
+                <div class="brand-card">
+                    <h3>Trockenes Haar</h3>
+                    <p>Nutritive Pflege mit Irisome-Komplex. Bain Satin, Lait Vital und 8h Magic Night Serum.</p>
+                </div>
+                <div class="brand-card">
+                    <h3>Beschädigtes Haar</h3>
+                    <p>Bond-Building und Reparatur. Olaplex N° 4/5, Kérastase Genesis und Résistance Linien.</p>
+                </div>
+                <div class="brand-card">
+                    <h3>Blondes Haar</h3>
+                    <p>Silbernes Shampoo gegen Gelbstiche. Bain Ultra-Violet und Cicaflash Conditioner für Pflege.</p>
+                </div>
+                <div class="brand-card">
+                    <h3>Feines Haar</h3>
+                    <p>Volumen ohne Belastung. Extra Volume Mousse, leichte Shampoos und Hitzeschutz-Sprays.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 </main>
 
 <footer>
-    <div class="container footer-inner">
-        <div>
-            <p style="font-weight:800; color:var(--text);">Haircare Style Shop</p>
-            <p>Cheap to luxury brands with a texture-first quiz.</p>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Care To Style</h3>
+                <a href="index.html">Home</a>
+                <a href="products.html">Produkte</a>
+                <a href="brands.html">Marken</a>
+                <a href="contact.html">Kontakt</a>
+            </div>
+            <div class="footer-col">
+                <h4>Zahlungsmethoden</h4>
+                <div class="payment-methods">
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>TWINT</span>
+                    <span>PostFinance</span>
+                    <span>PayPal</span>
+                    <span>Rechnung</span>
+                    <span>Vorauskasse</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Service</h4>
+                <a href="contact.html">Kontakt</a>
+            </div>
         </div>
-        <div class="footer-links" aria-label="Footer links">
-            <a href="products.html">Products</a>
-            <a href="quiz.html">Quiz</a>
-            <a href="styling-guide.html">Styling Guide</a>
-            <a href="contact.html">Contact</a>
-        </div>
+        <div class="footer-bottom"><p>© 2026 Care To Style.</p></div>
     </div>
 </footer>
+<script src="cart.js"></script>
 </body>
 </html>
-

@@ -1,243 +1,132 @@
 # KI-Einsatz Dokumentation - Haircare Style Webshop
 
-## Übersicht
+## Projektuebersicht
 
-Dieses Projekt wurde unter Zuhilfenahme von KI-gestützten Entwicklungsumgebungen erstellt. Die Dokumentation zeigt, wie verschiedene KI-Tools für Layout, Codevorschläge und UI-Optimierungen eingesetzt wurden.
+Dieses Projekt ist ein Webshop fuer Haarpflegeprodukte, erstellt mit reinem HTML, CSS und minimalem JavaScript. Das Design ist hell und minimal, mit Fokus auf verschiedene Haartypen.
+
+**Technologien:** HTML5, CSS3, Vanilla JavaScript (keine Frameworks)
+**Seiten:** 7 (index, products, product, brands, quiz, styling-guide, contact)
+**Produkte:** 12 ueber 6 Marken (Wave, Curly, Coily, Straight, Fine, Repair)
 
 ---
 
 ## Verwendete KI-Tools
 
-| Tool | Typ | Primärer Einsatzzweck |
-|------|-----|----------------------|
-| **Cursor** | AI-IDE (VSCode Fork) | Code-Generierung, Refactoring |
-| **Windsurf** | AI-IDE (VSCode Fork) | Code-Completions, Chat-Interface |
-| **ChatGPT** (Web) | LLM Chat | Konzeption, Problemlösung |
+| Tool | Typ | Einsatzzweck |
+|------|-----|-------------|
+| **opencode (Claude)** | AI-IDE | Code-Generierung, Refactoring, Debugging |
+| **ChatGPT** (Web) | LLM Chat | Konzeption, Struktur-Planung |
 
 ---
 
-## Vergleichskriterien
+## KI-Einsatz nach Phase
 
-Für den Tool-Vergleich wurden folgende selbst definierte Kriterien verwendet:
+### 1. Projektstruktur & Design
+- **KI-Anteil:** Hoch
+- **Beschreibung:** Die gesamte Seitenstruktur, das Farbschema und das Layout-System wurden mit KI-Hilfe geplant und implementiert.
+- **Beispiel:** CSS Grid-System mit 12-Spalten-Logik und responsive Breakpoints.
 
-| Kriterium | Beschreibung | Gewichtung |
-|-----------|--------------|------------|
-| **Code-Qualität** | Wie gut ist der generierte Code? | 20% |
-| **Kontextverständnis** | Versteht das Tool den Projektzusammenhang? | 20% |
-| **Lernkurve** | Wie schnell kann man produktiv arbeiten? | 15% |
-| **Layout-Vorschläge** | Qualität der UI/UX Empfehlungen | 15% |
-| **Problemlösung** | Effektivität bei Fehlersuche | 15% |
-| **Dokumentation** | Verfügbare Hilfe und Guides | 15% |
+### 2. HTML-Seiten
+- **KI-Anteil:** Hoch
+- **Beschreibung:** Alle 7 HTML-Seiten wurden mit KI-Generierung erstellt, einschliesslich semantischer Struktur, ARIA-Labels und Accessibility-Features.
+- **Seiten:**
+  - `index.html`: Hero, Bestseller, Kategorien, Videos, Newsletter
+  - `products.html`: 12 Produkt-Karten mit JS-Filter
+  - `product.html`: Dynamisches Produktdetail mit `?id=` Parameter
+  - `brands.html`: 6 Marken-Karten
+  - `quiz.html`: Haartyp-Quiz mit Produkt-Empfehlung
+  - `styling-guide.html`: Video-Tutorials
+  - `contact.html`: Team-Infos, Kontaktformular mit Betreff-Dropdown
 
----
+### 3. CSS-Styling
+- **KI-Anteil:** Hoch
+- **Beschreibung:** Das komplette CSS-Stylesheet (`style.css`) wurde mit KI-Hilfe erstellt, einschliesslich CSS-Variablen, Grid-Layouts, Komponenten-Styling und responsive Media Queries.
 
-## Detaillierter Tool-Vergleich
+### 4. JavaScript
+- **KI-Anteil:** Mittel
+- **Beschreibung:** JavaScript wurde fuer folgende Funktionen implementiert:
+  - Produkt-Filter auf `products.html` (Kategorie-Filter)
+  - URL-Parameter-Auswertung auf `products.html` und `product.html`
+  - Dynamisches Produktladen auf `product.html`
+  - Quiz-Empfehlungen auf `quiz.html`
 
-### 1. Cursor
-
-#### Stärken
-- **Inline Chat**: Direkt im Code mit `Cmd+K` arbeiten
-- **Tab-Completion**: Kontextbezogene Code-Vorschläge
-- **Projektweites Verständnis**: Lernt aus dem gesamten Projekt
-- **Schnelle Iteration**: Schnelle Umsetzung von Änderungen
-
-#### Schwächen
-- **Credit-System**: Begrenzte kostenlose Nutzung
-- **Manchmal zu aggressiv**: Überschreibt eigenen Code ungefragt
-
-#### Einsatz im Projekt
-```
-✓ Grid-Layout Generierung
-✓ CSS-Variablen Strukturierung  
-✓ Responsive Breakpoints
-✓ HTML-Struktur für Produktkarten
-✓ Formular-Layouts
-```
-
-#### Bewertung (1-10)
-| Kriterium | Note |
-|-----------|------|
-| Code-Qualität | 8 |
-| Kontextverständnis | 9 |
-| Lernkurve | 8 |
-| Layout-Vorschläge | 8 |
-| Problemlösung | 7 |
-| Dokumentation | 8 |
-| **Gesamt** | **8.0** |
+### 5. Dokumentation
+- **KI-Anteil:** Hoch
+- **Beschreibung:** Wireframes, Styleguide und diese KI-Dokumentation wurden mit KI-Unterstützung erstellt.
 
 ---
 
-### 2. Windsurf
+## Konkrete Beispiele
 
-#### Stärken
-- **Chat-Interface**: Natürliche Gesprächsführung
-- **Flow-Funktion**: Automatische Dateianalyse
-- **Keine Credits**: Unbegrenzte Nutzung (Basic Plan)
-- **Shell-Integration**: Direkte Terminal-Befehle
+### Beispiel 1: CSS Grid Layout
 
-#### Schwächen
-- **Langsamere Antworten** als Cursor
-- **Weniger kontextbezogen** bei großen Projekten
-- **UI-Design-Vorschläge** manchmal generisch
-
-#### Einsatz im Projekt
+**Prompt:**
 ```
-✓ Fragen zu CSS-Problemen
-✓ Code-Review und Optimierungen
-✓ Konzeptionelle Fragen zu HTML-Semantik
-✓ Debugging-Hilfe
-```
-
-#### Bewertung (1-10)
-| Kriterium | Note |
-|-----------|------|
-| Code-Qualität | 7 |
-| Kontextverständnis | 7 |
-| Lernkurve | 9 |
-| Layout-Vorschläge | 6 |
-| Problemlösung | 7 |
-| Dokumentation | 7 |
-| **Gesamt** | **7.2** |
-
----
-
-### 3. ChatGPT (Web)
-
-#### Stärken
-- **Breites Wissen**: Allgemeine Programmierkenntnisse
-- **Erklären von Konzepten**: Detaillierte Erläuterungen
-- **Keine Installation**: Sofort einsatzbereit
-- **Code-Explaining**: Besten Code analysieren und erklären
-
-#### Schwächen
-- **Kein Projektkontext**: Muss Code manuell einfügen
-- **Kein Live-Editing**: Keine direkte Dateibearbeitung
-- **Veraltete Infos**: Manchmal falsche Best Practices
-
-#### Einsatz im Projekt
-```
-✓ Fragen zu HTML-Semantik und Best Practices
-✓ CSS-Layout-Erklärungen
-✓ Accessibility-Konzepte
-✓ Debugging-Strategien
-```
-
-#### Bewertung (1-10)
-| Kriterium | Note |
-|-----------|------|
-| Code-Qualität | 6 |
-| Kontextverständnis | 5 |
-| Lernkurve | 10 |
-| Layout-Vorschläge | 6 |
-| Problemlösung | 7 |
-| Dokumentation | 9 |
-| **Gesamt** | **7.2** |
-
----
-
-## Vergleichs-Zusammenfassung
-
-| Kriterium | Cursor | Windsurf | ChatGPT |
-|-----------|--------|----------|---------|
-| Code-Qualität | 8 | 7 | 6 |
-| Kontextverständnis | 9 | 7 | 5 |
-| Lernkurve | 8 | 9 | 10 |
-| Layout-Vorschläge | 8 | 6 | 6 |
-| Problemlösung | 7 | 7 | 7 |
-| Dokumentation | 8 | 7 | 9 |
-| **Gesamt** | **8.0** | **7.2** | **7.2** |
-
-### Fazit
-
-**Empfehlung für dieses Projekt:**
-
-1. **Cursor** für aktive Codegenerierung und Refactoring
-2. **Windsurf** für schnelle Chat-basierte Fragen
-3. **ChatGPT** für konzeptionelle Fragen und Lernen
-
-Für reine HTML/CSS-Projekte ohne Framework eignen sich beide AI-IDEs gut. Cursor hat einen leichten Vorsprung bei der Code-Qualität, während Windsurf durch das kostenlose Modell überzeugt.
-
----
-
-## Konkrete KI-Einsatz-Beispiele
-
-### 1. Grid-Layout Generierung
-
-**Prompt an Cursor:**
-```
-Create a CSS grid layout with 12 columns and 18px gap. 
-Cards should span 4 columns on desktop, 6 on tablet, 12 on mobile.
+Create a CSS grid for product cards: 4 columns desktop, 2 tablet, 1 mobile.
+Light minimal style, white cards with subtle borders.
 ```
 
 **Ergebnis:**
 ```css
-.grid {
+.product-grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
-
-.card { grid-column: span 4; }
-
+.product-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
 @media (max-width: 980px) {
-    .card { grid-column: span 6; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (max-width: 560px) {
-    .card { grid-column: span 12; }
+    .product-grid { grid-template-columns: 1fr; }
 }
 ```
 
-### 2. CSS-only Filter-System
+### Beispiel 2: Dynamisches Produktladen
 
-**Prompt an Windsurf:**
+**Prompt:**
 ```
-How can I create a product filter using only CSS (checkbox hack)?
-Filter by category: all, shampoo, conditioner, styling
-```
-
-**Ergebnis:**
-```css
-#filter-all:checked ~ .products .card { display: block; }
-#filter-shampoo:checked ~ .products .card.shampoo { display: block; }
-/* usw. */
+Create a product detail page that loads product data from a JS array
+based on a URL parameter ?id=X. Include image, description, price,
+badges, video embed, and an order form.
 ```
 
-### 3. Accessibility Optimierung
+**Ergebnis:** Ein `products` Array mit 12 Produkten, das per `URLSearchParams` abgefragt und die DOM-Elemente dynamisch befuellt.
 
-**Prompt an ChatGPT:**
+### Beispiel 3: Kontaktformular mit Betreff-Dropdown
+
+**Prompt:**
 ```
-What accessibility features should I add to a product card with 
-image, title, price and order button?
+Create a contact form with: name, email, subject dropdown (Bestellung,
+Produktberatung, Feedback, Versand, Sonstiges), message textarea.
+Include team member cards on the left side.
 ```
 
-**Ergebnis:**
-- ARIA-Labels für Screen Reader
-- Alt-Texte für Bilder
-- Skip-Links für Tastatur-Navigation
-- Fokus-States für interaktive Elemente
+**Ergebnis:** 2-spaltiges Layout mit Team-Karten links und Formular rechts.
 
 ---
 
 ## Lessons Learned
 
-1. **KI als Assistent, nicht Ersatz**: KI-Tools beschleunigen die Entwicklung, aber Verständnis bleibt wichtig
+1. **KI als Werkzeug, nicht als Ersatz:** KI beschleunigt die Entwicklung enorm, aber man muss den Code verstehen und anpassen koennen.
 
-2. **Kontext ist King**: Cursor versteht Projekte am besten, wenn die Dateistruktur klar ist
+2. **Konsistenz ist wichtig:** Einheitliches Design ueber alle Seiten hinweg erfordert sorgfaeltige Planung der CSS-Variablen und Komponenten.
 
-3. **Iterative Prompts**: Kleine, präzise Prompts bringen bessere Ergebnisse als große, vage Anfragen
+3. **Iteratives Vorgehen:** Kleine, gezielte Prompts liefern bessere Ergebnisse als grosse, vage Anfragen.
 
-4. **Cross-Referencing**: Niemals einer KI 100% vertrauen - immer gegenprüfen
+4. **Testing:** KI-generierter Code muss immer getestet werden, besonders bei JavaScript-Logik.
 
-5. **Dokumentation**: Die KI-Nutzung selbst dokumentieren hilft beim Lernen
+5. **Dokumentation:** Die parallele Dokumentation von Wireframes und Styleguide hilft, das Design konsistent zu halten.
 
 ---
 
-## Zukünftige KI-Nutzung
+## Fazit
 
-Für dieses Projekt könnte KI künftig helfen bei:
-- Automatische Bildoptimierung und Alt-Texte
-- Performance-Optimierung (CSS minifizieren)
-- SEO-Optimierung
-- Automatische Accessibility-Tests
-- Unit-Tests für Bestellformulare
+KI-Tools haben die Entwicklung dieses Webshop-Projekts massiv beschleunigt. Besonders bei der Erstellung wiederholbarer Komponenten (Produkt-Karten, Formulare, Grid-Layouts) war die KI sehr effektiv. Fuer individuelles Design-Feeling und Feinabstimmung war jedoch manuelle Anpassung notwendig.
+
+**Empfehlung:** KI als produktiven Assistenten nutzen, aber immer den Code verstehen und anpassen koennen.

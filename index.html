@@ -1,342 +1,204 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Haircare Style Shop | Minimal Webshop</title>
-    <meta name="description" content="Haircare & styling webshop with brands for every hairtype. Take the quiz and find your best match." />
+    <title>Care To Style | Premium Haarpflege</title>
+    <meta name="description" content="Entdecke Premium-Haarpflege von Olaplex, Kérastase, Wella Professionals, Goldwell, Sebastian, Schwarzkopf und mehr." />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<!-- Newsletter popup (CSS-only) -->
-<input id="newsletter-popup" class="newsletter-toggle" type="checkbox" checked aria-hidden="true" />
-<label for="newsletter-popup" class="newsletter-overlay" aria-hidden="true"></label>
-<section class="newsletter-popup" aria-label="Newsletter signup popup" role="dialog" aria-modal="true">
-    <div class="popup-head">
-        <div>
-            <h2 class="popup-title">Join the newsletter</h2>
-            <p class="popup-sub">Get promotions, restocks, and trending routines. No spam.</p>
-        </div>
-        <label for="newsletter-popup" class="popup-close" aria-label="Close newsletter popup">✕</label>
-    </div>
-    <form class="popup-form" action="mailto:hello@haircare-style.test" method="post" enctype="text/plain">
-        <div class="field">
-            <label for="newsletter-email-popup">Email</label>
-            <input id="newsletter-email-popup" type="email" name="email" required placeholder="you@example.com" />
-        </div>
-        <button class="primary" type="submit">Subscribe</button>
-    </form>
-</section>
+<a class="skip-link" href="#content">Zum Inhalt</a>
 
-<a class="skip-link" href="#content">Skip to content</a>
+<div id="newsletter-popup" class="newsletter-popup-overlay" style="display:none;">
+    <div class="newsletter-popup-box">
+        <button class="close-btn" onclick="closeNewsletterPopup()">&times;</button>
+        <h2>10% Rabatt sichern</h2>
+        <p>Trage dich in unseren Newsletter ein und erhalte 10% Rabatt auf deine erste Bestellung.</p>
+        <form class="newsletter-popup-form" id="newsletter-popup-form">
+            <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required />
+            <button type="submit" class="btn btn-primary">Anmelden</button>
+        </form>
+        <div class="newsletter-success" id="popup-success" style="display:none;">
+            <h2>✓ Anmeldung bestätigt!</h2>
+            <p>Vielen Dank! Du erhältst bald deinen 10% Rabattcode per E-Mail.</p>
+            <button class="btn btn-primary" onclick="closeNewsletterPopup()">Schliessen</button>
+        </div>
+    </div>
+</div>
+
+<div class="top-banner">Kostenloser Versand ab CHF 50</div>
 
 <header>
     <div class="container header-inner">
-        <div class="logo" aria-label="Haircare Style Shop">
-            <span class="logo-mark" aria-hidden="true"></span>
-            <div>
-                <div class="logo-name">Haircare Style</div>
-                <div class="logo-sub">Brands for your texture</div>
-            </div>
+        <div class="logo">
+            <span class="logo-name">Care To Style</span>
         </div>
-        <nav aria-label="Main navigation">
+        <nav class="main-nav" aria-label="Hauptnavigation">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="styling-guide.html">Styling Guide</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="brands.html">Brands</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Produkte</a></li>
+                <li><a href="brands.html">Marken</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <a href="cart.html" class="cart-icon" aria-label="Warenkorb">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                <span class="cart-badge" id="cart-count">0</span>
+            </a>
+        </div>
     </div>
 </header>
 
-<main id="content" class="container">
-    <section class="hero" aria-label="Homepage hero">
-        <div class="hero-card">
-            <div class="hero-kicker">Minimal. Modern. Texture-first.</div>
-            <h1 class="hero-title">Your best hair days start here.</h1>
-            <p class="hero-lead">
-                Discover haircare and styling products across price tiers and trend levels. Take the quiz to find the
-                best match for your hairtype, then order directly online.
-            </p>
+<main id="content">
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Deine Haare. Deine Pflege.</h1>
+            <p class="hero-subtitle">Premium-Produkte von Olaplex, Kérastase, Wella Professionals, L'Oréal Professionnel, Schwarzkopf, ghd und mehr.</p>
             <div class="hero-actions">
-                <a class="btn primary" href="quiz.html">Take the hairtype quiz</a>
-                <a class="btn" href="products.html">Shop all products</a>
-                <a class="btn" href="brands.html">Explore brands</a>
+                <a href="products.html" class="btn btn-primary">Alle Produkte</a>
             </div>
         </div>
+    </section>
 
-        <aside class="hero-side">
-            <div class="mini-stats">
-                <h2>Quick paths</h2>
-                <div class="chips" role="list" aria-label="Quick product paths">
-                    <span class="chip">Best seller today</span>
-                    <span class="chip">Best choice by hairtype</span>
-                    <span class="chip">Viral routines</span>
-                    <span class="chip">Cheap to luxury</span>
-                </div>
-            </div>
-
-            <div class="mini-stats">
-                <h2>Newsletter (inline)</h2>
-                <p class="popup-sub" style="margin-top:0;">Prefer a quick signup? Add your email here.</p>
-                <form class="popup-form" style="margin-top:12px;" action="mailto:hello@haircare-style.test" method="post" enctype="text/plain">
-                    <div class="field">
-                        <label for="newsletter-email">Email</label>
-                        <input id="newsletter-email" type="email" name="email" required placeholder="you@example.com" />
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Bestseller</h2>
+            <p class="section-subtitle">Unsere beliebtesten Produkte</p>
+            <div class="product-grid">
+                <a href="product.html#product-1" class="product-card">
+                    <div class="product-image">
+                        <img src="images/1294059-Olaplex-No-4-Bond-Maintenance-Shampoo-250-ml.fbe9b5f9.jpg" alt="Olaplex N° 4 Bond Maintenance Shampoo" />
+                        <span class="product-badge">Bestseller</span>
                     </div>
-                    <button class="primary" type="submit">Join</button>
+                    <div class="product-info">
+                        <span class="product-brand">Olaplex</span>
+                        <h3 class="product-name">N° 4 Bond Maintenance Shampoo</h3>
+                        <span class="product-price">CHF 18.00</span>
+                    </div>
+                </a>
+                <a href="product.html#product-15" class="product-card">
+                    <div class="product-image">
+                        <img src="images/N° 7 Bonding Oil Haaröl.jpg" alt="Olaplex N° 7 Bonding Oil" />
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Olaplex</span>
+                        <h3 class="product-name">N° 7 Bonding Oil</h3>
+                        <span class="product-price">CHF 17.00</span>
+                    </div>
+                </a>
+                <a href="product.html#product-4" class="product-card">
+                    <div class="product-image">
+                        <img src="images/1631292-Kerastase-Blond-Absolu-Bain-Ultra-Violet-250-ml.1fa622e0.jpg" alt="Kérastase Bain Ultra-Violet" />
+                        <span class="product-badge">Beliebt</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Kérastase</span>
+                        <h3 class="product-name">Bain Ultra-Violet</h3>
+                        <span class="product-price">CHF 24.50</span>
+                    </div>
+                </a>
+                <a href="product.html#product-13" class="product-card">
+                    <div class="product-image">
+                        <img src="images/Rich Hydration Mask.jpg" alt="Olaplex Rich Hydration Mask" />
+                        <span class="product-badge">Neu</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Olaplex</span>
+                        <h3 class="product-name">Rich Hydration Mask</h3>
+                        <span class="product-price">CHF 24.50</span>
+                    </div>
+                </a>
+            </div>
+            <div class="section-link"><a href="products.html" class="btn btn-outline">Alle Produkte ansehen</a></div>
+        </div>
+    </section>
+
+    <section class="section brand-cats">
+        <div class="container">
+            <h2 class="section-title">Nach Kategorie</h2>
+            <p class="section-subtitle">Finde die passende Pflege für dein Haar</p>
+            <div class="brand-grid">
+                <a href="products.html" class="brand-card"><h3>Shampoo</h3><p>Sanfte Reinigung und Pflege</p></a>
+                <a href="products.html" class="brand-card"><h3>Conditioner</h3><p>Feuchtigkeit und Geschmeidigkeit</p></a>
+                <a href="products.html" class="brand-card"><h3>Styling</h3><p>Halt, Textur und Glanz</p></a>
+                <a href="products.html" class="brand-card"><h3>Treatment</h3><p>Intensive Reparatur und Masken</p></a>
+                <a href="products.html" class="brand-card"><h3>Haaröl</h3><p>Glanz und Hitzeschutz</p></a>
+                <a href="products.html" class="brand-card"><h3>Hitzeschutz</h3><p>Schutz beim Styling</p></a>
+                <a href="products.html" class="brand-card"><h3>Mousse</h3><p>Volumen und Leichtigkeit</p></a>
+                <a href="products.html" class="brand-card"><h3>Alle Produkte</h3><p>Gesamte Kollektion entdecken</p></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section brand-cats">
+        <div class="container">
+            <h2 class="section-title">Unsere Marken</h2>
+            <p class="section-subtitle">Kuratierte Marken für jeden Bedarf</p>
+            <div class="brands-showcase">
+                <div class="brand-item"><img src="images/Olaplex_Logo.png" alt="Olaplex" /><span>Olaplex</span></div>
+                <div class="brand-item"><img src="images/kerastase-logo.png" alt="Kérastase" /><span>Kérastase</span></div>
+                <div class="brand-item"><img src="images/wella-professionals-logo.jpg" alt="Wella Professionals" /><span>Wella Professionals</span></div>
+                <div class="brand-item"><img src="images/Sebastian Re-shaper Hairspray Styling.jpg" alt="Sebastian" /><span>Sebastian</span></div>
+                <div class="brand-item"><img src="images/2616297-Goldwell-StyleSign-Texture-Lagoom-Jam-Styling-Gel-sehr-starker-Halt-150-ml.e99065f8.jpg" alt="Goldwell" /><span>Goldwell</span></div>
+                <div class="brand-item"><img src="images/l-oreal-professionnel-logo-png-transparent.png" alt="L'Oréal Professionnel" /><span>L'Oréal Professionnel</span></div>
+                <div class="brand-item"><img src="images/ghd-logo.png" alt="ghd" /><span>ghd</span></div>
+                <div class="brand-item"><img src="images/1668072-Authentic-Beauty-Concept-Hydrate-Cleanser-300-ml.8c684de9.jpg" alt="Authentic Beauty Concept" /><span>Authentic Beauty Concept</span></div>
+                <div class="brand-item"><img src="images/Nanoil Rizinusöl Haaröl.jpg" alt="Nanoil" /><span>Nanoil</span></div>
+                <div class="brand-item"><img src="images/Schwarzkopf-logo.jpg" alt="Schwarzkopf" /><span>Schwarzkopf</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section newsletter">
+        <div class="container">
+            <div class="newsletter-box">
+                <h2 class="section-title">Newsletter</h2>
+                <p class="section-subtitle">Erhalte 10% Rabatt auf deine erste Bestellung</p>
+                <form class="newsletter-form" id="newsletter-inline-form">
+                    <input type="email" name="email" placeholder="Deine E-Mail" required />
+                    <button type="submit" class="btn btn-primary">Abonnieren</button>
                 </form>
-            </div>
-        </aside>
-    </section>
-
-    <section class="section-title">
-        <h2>Featured today</h2>
-        <p>Popular picks, fresh routines, and viral favorites.</p>
-    </section>
-
-    <section class="grid" aria-label="Bestseller products">
-        <article class="card">
-            <div class="card-media">
-                <img src="https://images.unsplash.com/photo-1556906781-9a58d3d4b6b8?auto=format&fit=crop&w=900&q=60" alt="Sea mist style product on a neutral background" />
-            </div>
-            <div class="card-body">
-                <div class="meta-row">
-                    <span class="badge">Bestseller</span>
-                    <span>Wavy</span>
-                    <span>Brand: ManeWave</span>
+                <div class="newsletter-inline-success" id="inline-success" style="display:none;">
+                    <p>✓ Erfolgreich angemeldet! Du erhältst deinen 10% Rabattcode per E-Mail.</p>
                 </div>
-                <div class="product-title">ManeWave Sea Mist (Heat Protectant)</div>
-                <div class="meta-row" aria-label="Price">
-                    <span class="price">$24.90</span>
-                </div>
-                <div class="actions">
-                    <a class="link-btn primary" href="product.html#p-sea-mist">View details</a>
-                    <a class="link-btn" href="quiz.html">Best for me</a>
-                </div>
-            </div>
-        </article>
-
-        <article class="card">
-            <div class="card-media">
-                <img src="https://images.unsplash.com/photo-1520975693416-35a3a6b7f7e0?auto=format&fit=crop&w=900&q=60" alt="Curly hair care product bottle with soft highlights" />
-            </div>
-            <div class="card-body">
-                <div class="meta-row">
-                    <span class="badge">Best choice</span>
-                    <span>Curly</span>
-                    <span>Brand: CurlCraft</span>
-                </div>
-                <div class="product-title">CurlCraft Cocoa Curl Cream</div>
-                <div class="meta-row">
-                    <span class="price">$32.00</span>
-                </div>
-                <div class="actions">
-                    <a class="link-btn primary" href="product.html#p-cocoa-curl-cream">View details</a>
-                    <a class="link-btn" href="products.html">Shop more</a>
-                </div>
-            </div>
-        </article>
-
-        <article class="card">
-            <div class="card-media">
-                <img src="https://images.unsplash.com/photo-1542903660-97df1d07a5b6?auto=format&fit=crop&w=900&q=60" alt="Hair oil product with a clean studio look" />
-            </div>
-            <div class="card-body">
-                <div class="meta-row">
-                    <span class="badge">Viral routine</span>
-                    <span>Coily</span>
-                    <span>Brand: CoilyKind</span>
-                </div>
-                <div class="product-title">CoilyKind Revive Hair Oil</div>
-                <div class="meta-row">
-                    <span class="price">$44.50</span>
-                </div>
-                <div class="actions">
-                    <a class="link-btn primary" href="product.html#p-revive-oil">View details</a>
-                    <a class="link-btn" href="styling-guide.html">See styling tips</a>
-                </div>
-            </div>
-        </article>
-    </section>
-
-    <section class="section-title">
-        <h2>Best choice by hairtype</h2>
-        <p>One quiz. One match. Start now.</p>
-    </section>
-
-    <section class="grid" aria-label="Best choice by hairtype">
-        <article class="card">
-            <div class="card-media">
-                <img src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=900&q=60" alt="Sleek straight hair style" />
-            </div>
-            <div class="card-body">
-                <div class="meta-row"><span class="badge">Straight</span><span>Brand: SilkStraight</span></div>
-                <div class="product-title">Heat Protectant Spray</div>
-                <div class="meta-row"><span class="price">$19.90</span></div>
-                <div class="actions"><a class="link-btn primary" href="product.html#p-heat-protectant">View</a></div>
-            </div>
-        </article>
-
-        <article class="card">
-            <div class="card-media">
-                <img src="https://images.unsplash.com/photo-1533740771643-3c7db3f42f3b?auto=format&fit=crop&w=900&q=60" alt="Wavy hair styling scene" />
-            </div>
-            <div class="card-body">
-                <div class="meta-row"><span class="badge">Wavy</span><span>Brand: ManeWave</span></div>
-                <div class="product-title">Sea Mist (Air-dry friendly)</div>
-                <div class="meta-row"><span class="price">$24.90</span></div>
-                <div class="actions"><a class="link-btn primary" href="product.html#p-sea-mist">View</a></div>
-            </div>
-        </article>
-
-        <article class="card">
-            <div class="card-media">
-                <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=900&q=60" alt="Curly hair care concept" />
-            </div>
-            <div class="card-body">
-                <div class="meta-row"><span class="badge">Curly</span><span>Brand: CurlCraft</span></div>
-                <div class="product-title">Cocoa Curl Cream</div>
-                <div class="meta-row"><span class="price">$32.00</span></div>
-                <div class="actions"><a class="link-btn primary" href="product.html#p-cocoa-curl-cream">View</a></div>
-            </div>
-        </article>
-
-        <article class="card">
-            <div class="card-media">
-                <img src="https://images.unsplash.com/photo-1524504388940-b1c172a1ee64?auto=format&fit=crop&w=900&q=60" alt="Coily hair and texture shine" />
-            </div>
-            <div class="card-body">
-                <div class="meta-row"><span class="badge">Coily</span><span>Brand: CoilyKind</span></div>
-                <div class="product-title">Revive Hair Oil</div>
-                <div class="meta-row"><span class="price">$44.50</span></div>
-                <div class="actions"><a class="link-btn primary" href="product.html#p-revive-oil">View</a></div>
-            </div>
-        </article>
-
-        <article class="card">
-            <div class="card-media">
-                <img src="https://images.unsplash.com/photo-1520975869018-0b3b1e1b07f9?auto=format&fit=crop&w=900&q=60" alt="Fine hair volume and airy texture" />
-            </div>
-            <div class="card-body">
-                <div class="meta-row"><span class="badge">Fine</span><span>Brand: FineBloom</span></div>
-                <div class="product-title">Volume Foam</div>
-                <div class="meta-row"><span class="price">$21.50</span></div>
-                <div class="actions"><a class="link-btn primary" href="product.html#p-volume-foam">View</a></div>
-            </div>
-        </article>
-    </section>
-
-    <section class="section-title">
-        <h2>Viral & trending</h2>
-        <p>Fresh textures, quick results.</p>
-    </section>
-
-    <section class="grid" aria-label="Viral products">
-        <article class="card">
-            <div class="card-media">
-                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=60" alt="Hair mask product concept" />
-            </div>
-            <div class="card-body">
-                <div class="meta-row"><span class="badge">Trending</span><span>Brand: RepairRoot</span></div>
-                <div class="product-title">Protein Mask (Deep Repair)</div>
-                <div class="meta-row"><span class="price">$36.00</span></div>
-                <div class="actions"><a class="link-btn primary" href="product.html#p-protein-mask">View</a></div>
-            </div>
-        </article>
-
-        <article class="card">
-            <div class="card-media">
-                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=900&q=60" alt="Anti frizz serum concept" />
-            </div>
-            <div class="card-body">
-                <div class="meta-row"><span class="badge">Viral</span><span>Brand: GlossGuard</span></div>
-                <div class="product-title">Anti-Frizz Serum</div>
-                <div class="meta-row"><span class="price">$29.90</span></div>
-                <div class="actions"><a class="link-btn primary" href="product.html#p-anti-frizz-serum">View</a></div>
-            </div>
-        </article>
-
-        <article class="card">
-            <div class="card-media">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=60" alt="Twist butter styling concept" />
-            </div>
-            <div class="card-body">
-                <div class="meta-row"><span class="badge">New drop</span><span>Brand: KinkCare</span></div>
-                <div class="product-title">Twist Butter</div>
-                <div class="meta-row"><span class="price">$48.00</span></div>
-                <div class="actions"><a class="link-btn primary" href="product.html#p-twist-butter">View</a></div>
-            </div>
-        </article>
-    </section>
-
-    <section class="section-title">
-        <h2>Browse categories</h2>
-        <p>Quick overview of what you can shop.</p>
-    </section>
-
-    <section class="side-by-side" aria-label="Category overview">
-        <div class="panel">
-            <h3>Shop by hair type</h3>
-            <div class="list">
-                <a href="products.html#all-hairtype"><span>Straight</span><span>Curated</span></a>
-                <a href="products.html#hair-straight"><span>Wavy</span><span>Air-dry friendly</span></a>
-                <a href="products.html#hair-curly"><span>Curly</span><span>Definition</span></a>
-                <a href="products.html#hair-coily"><span>Coily</span><span>Moisture</span></a>
-                <a href="products.html#hair-fine"><span>Fine / Thin</span><span>Volume</span></a>
-            </div>
-        </div>
-
-        <div class="panel">
-            <h3>Shop by product type</h3>
-            <div class="list">
-                <a href="products.html"><span>Shampoo</span><span>Cleanse</span></a>
-                <a href="products.html"><span>Conditioner</span><span>Softness</span></a>
-                <a href="products.html"><span>Mask</span><span>Repair</span></a>
-                <a href="products.html"><span>Styling Gel / Cream</span><span>Hold</span></a>
-                <a href="products.html"><span>Oil / Serum</span><span>Shine</span></a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-title">
-        <h2>Want your exact match?</h2>
-        <p>Answer one question. Get a best-choice recommendation.</p>
-    </section>
-    <section class="panel">
-        <div class="side-by-side">
-            <div>
-                <h3>Your hairtype quiz</h3>
-                <p class="popup-sub" style="margin:0;">
-                    We’ll recommend a haircare + styling pick by hairtype. Then you can order instantly from the detail page.
-                </p>
-            </div>
-            <div>
-                <a class="btn primary" href="quiz.html">Start quiz</a>
-                <p class="popup-sub" style="margin-top:10px;">Recommended for: Straight, Wavy, Curly, Coily, Fine/Thin.</p>
             </div>
         </div>
     </section>
 </main>
 
 <footer>
-    <div class="container footer-inner">
-        <div>
-            <p style="font-weight:800; color:var(--text);">Haircare Style Shop</p>
-            <p>Grey-white minimal webshop demo. HTML + CSS only.</p>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Care To Style</h3>
+                <a href="index.html">Home</a>
+                <a href="products.html">Produkte</a>
+                <a href="brands.html">Marken</a>
+                <a href="contact.html">Kontakt</a>
+            </div>
+            <div class="footer-col">
+                <h4>Zahlungsmethoden</h4>
+                <div class="payment-methods">
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>TWINT</span>
+                    <span>PostFinance</span>
+                    <span>PayPal</span>
+                    <span>Rechnung</span>
+                    <span>Vorauskasse</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Service</h4>
+                <a href="contact.html">Kontakt</a>
+            </div>
         </div>
-        <div class="footer-links" aria-label="Footer links">
-            <a href="products.html">Products</a>
-            <a href="quiz.html">Quiz</a>
-            <a href="styling-guide.html">Styling Guide</a>
-            <a href="contact.html">Contact</a>
-            <a href="brands.html">Brands</a>
-        </div>
+        <div class="footer-bottom"><p>© 2026 Care To Style.</p></div>
     </div>
 </footer>
+<script src="cart.js"></script>
 </body>
 </html>
-

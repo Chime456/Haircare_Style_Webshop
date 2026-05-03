@@ -1,32 +1,34 @@
 # Styling Guide - Haircare Style Webshop
 
+## Design-Prinzipien
+
+1. **Hell & Minimal** - Weisse Hintergruende, dezente Akzente
+2. **Texture-first** - Fokus auf verschiedene Haartypen
+3. **Accessibility** - Skip-Links, ARIA-Labels, Fokus-States
+4. **Responsive** - Mobile, Tablet, Desktop
+5. **100% HTML/CSS** - Keine Frameworks, minimale JS
+
+---
+
 ## Farben (Color Palette)
 
 | Variable | Wert | Verwendung |
 |----------|------|------------|
 | `--bg` | `#ffffff` | Haupt-Hintergrund |
-| `--panel` | `#ffffff` | Card-/Panel-Hintergrund |
-| `--text` | `#111111` | Primärer Text |
-| `--muted` | `#5f5f5f` | Sekundärer Text, Subtitles |
-| `--border` | `#e5e5e5` | Rahmen, Unterteilungen |
-| `--shadow` | `0 12px 34px rgba(0,0,0,.06)` | Schatten für Cards/Popups |
-
-### Farbpalette Visualisierung
+| `--bg-alt` | `#f7f7f7` | Alternate Sektionen |
+| `--panel` | `#ffffff` | Card/Panel Hintergrund |
+| `--text` | `#111111` | Primaerer Text, Buttons |
+| `--text-muted` | `#6b6b6b` | Sekundaerer Text, Labels |
+| `--border` | `#e5e5e5` | Rahmen, Trennlinien |
+| `--shadow` | `0 4px 20px rgba(0,0,0,0.06)` | Card Schatten |
+| `--shadow-hover` | `0 8px 30px rgba(0,0,0,0.1)` | Hover Schatten |
 
 ```
-┌─────────────────────────────────────────────┐
-│ #111111 (Text)                              │
-│ ██████████████████████████████████████████  │
-│                                             │
-│ #5f5f5f (Muted)                             │
-│ ████████████████████████████████████████    │
-│                                             │
-│ #e5e5e5 (Border)                             │
-│ ████████████████████████████████████████    │
-│                                             │
-│ #ffffff (Background)                        │
-│ ████████████████████████████████████████    │
-└─────────────────────────────────────────────┘
+#111111 (Text)      ████████████████████
+#6b6b6b (Muted)     ████████████████████
+#e5e5e5 (Border)    ████████████████████
+#f7f7f7 (Bg-alt)    ████████████████████
+#ffffff (Bg)        ████████████████████
 ```
 
 ---
@@ -34,189 +36,188 @@
 ## Typografie
 
 ### Schriftfamilie
-
 ```css
-font-family: ui-sans-serif, system-ui, -apple-system, 
-              Segoe UI, Roboto, Helvetica, Arial, 
-              "Apple Color Emoji","Segoe UI Emoji";
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+             Helvetica, Arial, sans-serif;
 ```
 
-### Schriftgrößen
+### Schriftgroessen
 
-| Element | Größe | Weight | Line-Height |
-|---------|-------|--------|--------------|
-| Hero Title | `clamp(34px, 4vw, 56px)` | 900 | 1.03 |
-| Section Title | 20px | 900 | - |
-| Product Title | 16px | 900 | - |
-| Body Text | 14px | 400 | 1.5 |
-| Labels | 13px | - | - |
-| Badges | 12px | - | - |
-| Nav Links | 12px | 650 | - |
-| Logo Name | - | 800 | - |
-
-### Schrift-Guide
-
-```
-HERO TITLE
-The quick brown fox jumps over the lazy dog.
-Size: clamp(34px, 4vw, 56px), Weight: 900
-
-SECTION TITLE
-The quick brown fox jumps over the lazy dog.
-Size: 20px, Weight: 900
-
-PRODUCT TITLE
-The quick brown fox jumps over the lazy dog.
-Size: 16px, Weight: 900
-
-BODY TEXT
-The quick brown fox jumps over the lazy dog.
-Size: 14px, Weight: 400
-
-LABELS
-The quick brown fox jumps over the lazy dog.
-Size: 13px, Weight: 400, Color: #5f5f5f
-
-BADGES
-[Badge] [Badge] [Badge]
-Size: 12px, Weight: 400, Color: #5f5f5f
-```
+| Element | Groesse | Weight | Zeilenhoehe |
+|---------|---------|--------|-------------|
+| Hero Title | `clamp(32px, 5vw, 56px)` | 800 | 1.1 |
+| Section Title | 28px | 700 | - |
+| Product Name | 14px | 600 | - |
+| Product Price | 16px | 700 | - |
+| Body Text | 14px | 400 | 1.6 |
+| Labels | 13px | 500 | - |
+| Badges | 12px | 500 | - |
+| Nav Links | 14px | 500 | - |
+| Logo | 16px | 700 | - |
 
 ---
 
-## Abstände (Spacing)
+## Abstaende (Spacing)
 
-### Container
-```css
---container: 1200px;
-padding: 0 24px;
-```
-
-### Section-Abstände
 | Element | Wert |
 |---------|------|
-| Main Padding | 34px 0 70px |
-| Section Title Margin | 44px 0 16px |
-| Card Padding | 14px |
-| Panel Padding | 16px |
-| Grid Gap | 18px |
+| Container Max | 1200px |
+| Container Padding | 0 24px |
+| Section Padding | 60px 0 |
+| Section Title Margin | 0 0 8px |
+| Section Subtitle Margin | 0 0 32px |
+| Grid Gap | 20px |
+| Card Padding | 16px |
+| Button Padding | 12px 24px |
 
 ### Border Radius
-```css
---radius: 14px;      /* Cards, Popups */
---radius-sm: 10px;   /* Buttons, Inputs */
-```
+| Element | Wert |
+|---------|------|
+| `--radius` | 8px (Buttons, Inputs) |
+| `--radius-sm` | 6px (Badges) |
+| `--radius-lg` | 12px (Cards, Panels) |
 
 ---
 
 ## Komponenten
 
+### Header
+```
+sticky, weisser Hintergrund, 1px Border unten
+Flex-Layout: Logo links, Nav mittig, Cart rechts
+```
+
+### Navigation
+- Horizontale Links, 28px Abstand
+- Aktiver Link: untere Border in Textfarbe
+- Hover: Farbe wechselt zu `--text`
+
 ### Buttons
-
 ```css
-/* Primary Button */
-background: #111111;
-color: #ffffff;
-border: 1px solid #111111;
-padding: 11px 14px;
-border-radius: 12px;
-font-weight: 650;
+/* Primary */
+background: var(--text); color: var(--bg);
+padding: 12px 24px; border-radius: var(--radius);
+font-weight: 600; font-size: 14px;
 
-/* Secondary Button */
-background: #ffffff;
-color: #111111;
-border: 1px solid #e5e5e5;
+/* Outline */
+background: transparent; color: var(--text);
+border: 1px solid var(--border);
 ```
 
-### Formularelemente
-
-```css
-input[type="email"],
-input[type="text"],
-input[type="number"],
-select,
-textarea {
-    padding: 11px 12px;
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    background: #ffffff;
-    font-size: 14px;
-}
-
-textarea {
-    min-height: 110px;
-    resize: vertical;
-}
+### Produkt-Karten
+```
+Border: 1px solid var(--border)
+Border-Radius: var(--radius-lg)
+Overflow: hidden
+Hover: shadow-hover + translateY(-2px)
+Bild: aspect-ratio: 1, object-fit: cover
 ```
 
-### Cards
+### Marken-Karten
+```
+Border: 1px solid var(--border)
+Border-Radius: var(--radius-lg)
+Padding: 28px 20px
+Text: zentriert
+Hover: border-color: var(--text) + shadow
+```
 
-```css
-background: #ffffff;
-border: 1px solid #e5e5e5;
-border-radius: 14px;
-overflow: hidden;
-transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
-
-.card:hover {
-    transform: translateY(-2px);
-    border-color: #cfcfcf;
-    box-shadow: 0 12px 30px rgba(0,0,0,.06);
-}
+### Formular-Elemente
+```
+Padding: 10px 14px
+Border: 1px solid var(--border)
+Border-Radius: var(--radius)
+Background: var(--bg)
+Focus: border-color: var(--text), outline: none
+Textarea: min-height: 100px, resize: vertical
 ```
 
 ### Badges
-
-```css
-border: 1px solid #e5e5e5;
-background: #f7f7f7;
-padding: 6px 10px;
-border-radius: 999px;
-font-size: 12px;
-color: #5f5f5f;
+```
+Padding: 6px 12px
+Background: var(--bg-alt)
+Border: 1px solid var(--border)
+Border-Radius: var(--radius-sm)
+Font-Size: 12px
 ```
 
-### Chips
+### Video-Karten
+```
+Border: 1px solid var(--border)
+Border-Radius: var(--radius-lg)
+Overflow: hidden
+iframe: width: 100%, aspect-ratio: 16/9
+```
 
-```css
-padding: 8px 10px;
-border-radius: 999px;
-border: 1px solid #e5e5e5;
-background: #f7f7f7;
-font-size: 13px;
-color: #5f5f5f;
+### Footer
+```
+Background: var(--bg-alt)
+Border-Top: 1px solid var(--border)
+Padding: 48px 0 24px
+Grid: 2fr 1fr 1fr 1fr
 ```
 
 ---
 
 ## Layout-System
 
-### Grid
-
+### Produkt-Grid / Marken-Grid
 ```css
-.grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 18px;
-}
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 20px;
 
-/* Card-Breiten */
-.card { grid-column: span 4; }  /* Desktop: 3 pro Reihe */
 @media (max-width: 980px) {
-    .card { grid-column: span 6; }  /* Tablet: 2 pro Reihe */
+    grid-template-columns: repeat(2, 1fr);
 }
 @media (max-width: 560px) {
-    .card { grid-column: span 12; }  /* Mobile: 1 pro Reihe */
+    grid-template-columns: 1fr;
 }
 ```
 
-### Container
-
+### Video-Grid
 ```css
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+
+@media (max-width: 980px) {
+    grid-template-columns: 1fr;
+}
+```
+
+### Kontakt-Grid / Produkt-Detail-Grid
+```css
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 48px;
+
+@media (max-width: 980px) {
+    grid-template-columns: 1fr;
+}
+```
+
+### Formular-Grid
+```css
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 16px;
+
+.full { grid-column: 1 / -1; }
+
+@media (max-width: 560px) {
+    grid-template-columns: 1fr;
+}
+```
+
+### Footer-Grid
+```css
+display: grid;
+grid-template-columns: 2fr 1fr 1fr 1fr;
+gap: 40px;
+
+@media (max-width: 980px) {
+    grid-template-columns: 1fr;
 }
 ```
 
@@ -225,73 +226,21 @@ color: #5f5f5f;
 ## Responsive Breakpoints
 
 | Breakpoint | Breite | Anpassungen |
-|------------|--------|--------------|
-| Desktop | > 980px | Standard-Layout |
-| Tablet | 560px - 980px | Hero 1-spaltig, Grid 2-spaltig, Detail Layout gestapelt |
+|------------|--------|-------------|
+| Desktop | > 980px | Standard-Layout, 4 Spalten Grids |
+| Tablet | 560px - 980px | 2 Spalten Grids, Detail-Layout gestapelt |
 | Mobile | < 560px | Alles 1-spaltig, Navigation wrapped |
 
-### Media Queries
-
-```css
-/* Tablet */
-@media (max-width: 980px) {
-    .hero { grid-template-columns: 1fr; }
-    .card { grid-column: span 6; }
-    .detail-layout { grid-template-columns: 1fr; }
-    .order-grid { grid-template-columns: 1fr; }
-    .quiz-form { grid-template-columns: 1fr; }
-}
-
-/* Mobile */
-@media (max-width: 560px) {
-    nav ul { gap: 8px; }
-    .hero-title { font-size: 34px; }
-    .card { grid-column: span 12; }
-    .popup-form { grid-template-columns: 1fr; }
-}
-```
-
 ---
 
-## Spezielle Elemente
+## Seiten-Liste
 
-### Newsletter Popup (CSS-only)
-
-```css
-.newsletter-toggle {
-    position: absolute;
-    left: -9999px;
-}
-
-/* Checkbox-Hack für Toggle */
-.newsletter-toggle:checked ~ .newsletter-overlay { display: block; }
-.newsletter-toggle:checked ~ .newsletter-popup { display: block; }
-```
-
-### Produkt-Filter (CSS-only)
-
-```css
-.product-grid .card { display: none; }
-
-#hair-all:checked ~ .product-grid .card { display: block; }
-#hair-straight:checked ~ .product-grid .card.hair-straight { display: block; }
-/* usw. für: wavy, curly, coily, fine */
-```
-
-### Produkt-Detail Tabs (CSS-only)
-
-```css
-.product-detail { display: none; }
-.product-detail:target { display: block; }
-.product-detail:first-child { display: block; }
-```
-
----
-
-## Design-Prinzipien
-
-1. **Minimal & Modern** - Wenig Farben, klare Typografie
-2. **Texture-first** - Fokus auf verschiedene Haartypen
-3. **Accessibility** - Skip-Links, ARIA-Labels, Fokus-States
-4. **CSS-only Interaktion** - Kein JavaScript für Filter/Popups
-5. **Responsive First** - Mobile zuerst entwickeln
+| Seite | Datei | Besonderheiten |
+|-------|-------|---------------|
+| Startseite | `index.html` | Hero, Bestseller, Kategorien, Videos, Newsletter |
+| Produkte | `products.html` | 12 Produkte, JS-Filter, URL-Parameter |
+| Produktdetail | `product.html` | Dynamisch via `?id=`, Bild, Video, Bestellformular |
+| Marken | `brands.html` | 6 Marken-Karten |
+| Quiz | `quiz.html` | Haartyp-Auswahl, JS-Empfehlungen |
+| Styling Guide | `styling-guide.html` | Video-Tutorials, Produktempfehlungen |
+| Kontakt | `contact.html` | Team, Formular mit Betreff-Dropdown, FAQ |

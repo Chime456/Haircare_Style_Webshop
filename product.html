@@ -1,947 +1,739 @@
-<!doctype html>
-<html lang="en">
+﻿<!doctype html>
+<html lang="de">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Product Detail | Haircare Style Shop</title>
-    <meta name="description" content="View product details, watch a routine video, and order directly with an HTML form." />
+    <title>Produktdetail | Care To Style</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<!-- Newsletter popup (CSS-only) -->
-<input id="newsletter-popup" class="newsletter-toggle" type="checkbox" checked aria-hidden="true" />
-<label for="newsletter-popup" class="newsletter-overlay" aria-hidden="true"></label>
-<section class="newsletter-popup" aria-label="Newsletter signup popup" role="dialog" aria-modal="true">
-    <div class="popup-head">
-        <div>
-            <h2 class="popup-title">Join the newsletter</h2>
-            <p class="popup-sub">Get promotions, restocks, and trending routines. No spam.</p>
-        </div>
-        <label for="newsletter-popup" class="popup-close" aria-label="Close newsletter popup">✕</label>
-    </div>
-    <form class="popup-form" action="mailto:hello@haircare-style.test" method="post" enctype="text/plain">
-        <div class="field">
-            <label for="newsletter-email-popup-detail">Email</label>
-            <input id="newsletter-email-popup-detail" type="email" name="email" required placeholder="you@example.com" />
-        </div>
-        <button class="primary" type="submit">Subscribe</button>
-    </form>
-</section>
+<a class="skip-link" href="#content">Zum Inhalt</a>
 
-<a class="skip-link" href="#content">Skip to content</a>
+<div class="top-banner">Kostenloser Versand ab CHF 50</div>
 
 <header>
     <div class="container header-inner">
-        <div class="logo" aria-label="Haircare Style Shop">
-            <span class="logo-mark" aria-hidden="true"></span>
-            <div>
-                <div class="logo-name">Haircare Style</div>
-                <div class="logo-sub">Brands for your texture</div>
-            </div>
+        <div class="logo">
+            <span class="logo-name">Care To Style</span>
         </div>
-        <nav aria-label="Main navigation">
+        <nav class="main-nav" aria-label="Hauptnavigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="styling-guide.html">Styling Guide</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="brands.html">Brands</a></li>
+                <li><a href="products.html" class="active">Produkte</a></li>
+                <li><a href="brands.html">Marken</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <a href="cart.html" class="cart-icon" aria-label="Warenkorb">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                <span class="cart-badge" id="cart-count">0</span>
+            </a>
+        </div>
     </div>
 </header>
 
-<main id="content" class="container">
-    <section class="hero-card" style="padding:18px 18px;">
-        <div class="hero-kicker">Product detail page</div>
-        <h1 style="margin:10px 0 0; font-size:40px; letter-spacing:-.02em;">Order-ready picks</h1>
-        <p class="hero-lead" style="margin-top:10px;">
-            Use the switcher below to jump between product details. Each section includes an order form.
-        </p>
-        <div class="hero-actions" style="margin-top:14px;">
-            <a class="btn primary" href="products.html">Back to product overview</a>
-            <a class="btn" href="quiz.html">Retake quiz</a>
+<main id="content">
+    <section class="section">
+        <div class="container">
+
+            <div id="product-1" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/1294059-Olaplex-No-4-Bond-Maintenance-Shampoo-250-ml.fbe9b5f9.jpg" alt="Olaplex N° 4 Bond Maintenance Shampoo" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Olaplex</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">N° 4 Bond Maintenance Shampoo</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Reparierendes Shampoo für strapaziertes Haar.</p>
+                        <p class="price">CHF 18.00</p>
+                        <div class="product-meta"><span class="badge">Marke: Olaplex</span><span class="badge">Haartyp: Beschädigt</span><span class="badge">Kategorie: Shampoo</span></div>
+                        <p class="description">Das berühmte Bond Maintenance Shampoo von Olaplex. Repariert und schützt die Haarstruktur von innen. 250 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-1">Menge</label><input id="qty-1" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-1" onclick="addToCart('product-1', 'Olaplex N° 4 Bond Maintenance Shampoo', '18.00')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-2" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/TVe3381097688-0-global.jpg" alt="Kérastase Bain Satin" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Bain Satin</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Shampoo für trockenes bis sehr trockenes Haar.</p>
+                        <p class="price">CHF 22.25</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Trocken</span><span class="badge">Kategorie: Shampoo</span></div>
+                        <p class="description">Ein nährendes Shampoo mit Irisome-Komplex. Reinigt sanft und schützt das Haar vor dem Austrocknen. 250 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-2">Menge</label><input id="qty-2" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-2" onclick="addToCart('product-2', 'Kérastase Bain Satin', '24.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-3" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/8d8c220d2297f9b797fb9bdef745f0d38f02364b_3474636968688_bi_Bain_Hydratation_Douceur_Kerastase.jpg" alt="Kérastase Bain Hydratation Douceur" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Bain Hydratation Douceur</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Feuchtigkeitsspendendes Shampoo für trockenes Haar.</p>
+                        <p class="price">CHF 24.50</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Trocken</span><span class="badge">Kategorie: Shampoo</span></div>
+                        <p class="description">Sanftes feuchtigkeitsspendendes Shampoo aus der Curl Manifesto Linie. 250 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-3">Menge</label><input id="qty-3" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-3" onclick="addToCart('product-3', 'Kérastase Bain Hydratation Douceur', '22.05')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-4" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/1631292-Kerastase-Blond-Absolu-Bain-Ultra-Violet-250-ml.1fa622e0.jpg" alt="Kérastase Bain Ultra-Violet" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Bain Ultra-Violet</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Silbernes Shampoo für blondes und graues Haar.</p>
+                        <p class="price">CHF 24.50</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Blond</span><span class="badge">Kategorie: Shampoo</span></div>
+                        <p class="description">Neutralisiert unerwünschte gelbe und orangefarbene Töne. 250 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-4">Menge</label><input id="qty-4" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-4" onclick="addToCart('product-4', 'Kérastase Bain Ultra-Violet', '24.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-5" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/1668072-Authentic-Beauty-Concept-Hydrate-Cleanser-300-ml.8c684de9.jpg" alt="Authentic Beauty Concept Hydrate Cleanser" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Authentic Beauty Concept</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Hydrate Cleanser</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Feuchtigkeitsspendendes Shampoo für trockenes Haar.</p>
+                        <p class="price">CHF 34.35</p>
+                        <div class="product-meta"><span class="badge">Marke: Authentic Beauty Concept</span><span class="badge">Haartyp: Trocken</span><span class="badge">Kategorie: Shampoo</span></div>
+                        <p class="description">Milder Cleanser mit feuchtigkeitsspendender Formel. 300 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-5">Menge</label><input id="qty-5" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-5" onclick="addToCart('product-5', 'Authentic Beauty Concept Hydrate Cleanser', '19.90')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-6" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Bain Régénérant_A.jpg" alt="Kérastase Bain Régénérant" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Bain Régénérant</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Verjüngendes Shampoo für alle Haartypen.</p>
+                        <p class="price">CHF 29.15</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Shampoo</span></div>
+                        <p class="description">Luxuriöses regenerierendes Shampoo aus der Chronologiste Linie. 250 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-6">Menge</label><input id="qty-6" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-6" onclick="addToCart('product-6', 'Kérastase Bain Régénérant', '28.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-7" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/1294067-Olaplex-No-5-Bond-Maintenance-Conditioner-250-ml.4abef8f0.jpg" alt="Olaplex N° 5 Bond Maintenance Conditioner" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Olaplex</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">N° 5 Bond Maintenance Conditioner</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Reparierender Conditioner für strapaziertes Haar.</p>
+                        <p class="price">CHF 18.00</p>
+                        <div class="product-meta"><span class="badge">Marke: Olaplex</span><span class="badge">Haartyp: Beschädigt</span><span class="badge">Kategorie: Conditioner</span></div>
+                        <p class="description">Pflegender Conditioner, der die Haarstruktur repariert und schützt. 250 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-7">Menge</label><input id="qty-7" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-7" onclick="addToCart('product-7', 'Olaplex N° 5 Bond Maintenance Conditioner', '18.00')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-8" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Fondant Renforçateur.jpg" alt="Kérastase Fondant Renforçateur" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Fondant Renforçateur</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Stärkender Conditioner für geschwächtes Haar.</p>
+                        <p class="price">CHF 32.75</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Beschädigt</span><span class="badge">Kategorie: Conditioner</span></div>
+                        <p class="description">Stärkender Conditioner aus der Genesis Linie. 200 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-8">Menge</label><input id="qty-8" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-8" onclick="addToCart('product-8', 'Kérastase Fondant Renforçateur', '24.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-9" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Cicaflash Conditioner.jpg" alt="Kérastase Cicaflash Conditioner" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Cicaflash Conditioner</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Sofort pflegender Conditioner für blondes Haar.</p>
+                        <p class="price">CHF 33.85</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Blond</span><span class="badge">Kategorie: Conditioner</span></div>
+                        <p class="description">Sofort wirksamer Conditioner für geschädigtes blondes Haar. 250 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-9">Menge</label><input id="qty-9" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-9" onclick="addToCart('product-9', 'Kérastase Cicaflash Conditioner', '24.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-10" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Cicaflash Conditioner (2).jpg" alt="Kérastase Lait Vital" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Lait Vital</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Leichtes Conditioner-Milch für normales bis trockenes Haar.</p>
+                        <p class="price">CHF 29.50</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Trocken</span><span class="badge">Kategorie: Conditioner</span></div>
+                        <p class="description">Leichte pflegende Milch aus der Nutritive Linie. 200 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-10">Menge</label><input id="qty-10" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-10" onclick="addToCart('product-10', 'Kérastase Lait Vital', '22.05')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-11" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/N° 6 Bond Smoother Leave-in.jpg" alt="Olaplex N° 6 Bond Smoother" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Olaplex</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">N° 6 Bond Smoother</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Leave-in Stylingcreme für glattes, frizzfreies Haar.</p>
+                        <p class="price">CHF 18.25</p>
+                        <div class="product-meta"><span class="badge">Marke: Olaplex</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Leave-in</span></div>
+                        <p class="description">Leave-in Creme, die Frizz reduziert und das Haar glättet. 100 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-11">Menge</label><input id="qty-11" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-11" onclick="addToCart('product-11', 'Olaplex N° 6 Bond Smoother', '17.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-12" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Rich Hydration Mask.jpg" alt="Kérastase 8h Magic Night Serum" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">8h Magic Night Serum</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Nachtserum für intensive Regeneration.</p>
+                        <p class="price">CHF 42.70</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Trocken</span><span class="badge">Kategorie: Treatment</span></div>
+                        <p class="description">Über-Nacht-Serum für intensive Regeneration trockenen Haars. 90 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-12">Menge</label><input id="qty-12" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-12" onclick="addToCart('product-12', 'Kérastase 8h Magic Night Serum', '28.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-13" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Rich Hydration Mask.jpg" alt="Olaplex Rich Hydration Mask" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Olaplex</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Rich Hydration Mask</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Intensive Feuchtigkeitsmaske für trockenes Haar.</p>
+                        <p class="price">CHF 24.50</p>
+                        <div class="product-meta"><span class="badge">Marke: Olaplex</span><span class="badge">Haartyp: Trocken</span><span class="badge">Kategorie: Treatment</span></div>
+                        <p class="description">Intensive Feuchtigkeitsmaske mit Bond-Building-Technologie. 200 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-13">Menge</label><input id="qty-13" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-13" onclick="addToCart('product-13', 'Olaplex Rich Hydration Mask', '24.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-14" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Keratin Alpha Sleek.jpg" alt="L'Oréal Professionnel Keratin Alpha Sleek Treatment" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">L'Oréal Professionnel</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Keratin Alpha Sleek Treatment</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Glättendes Keratin-Treatment.</p>
+                        <p class="price">CHF 21.70</p>
+                        <div class="product-meta"><span class="badge">Marke: L'Oréal Professionnel</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Treatment</span></div>
+                        <p class="description">Professionelles Keratin-Treatment für geschmeidiges, glattes Haar. 200 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-14">Menge</label><input id="qty-14" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-14" onclick="addToCart('product-14', 'L\'Oréal Professionnel Keratin Alpha Sleek Treatment', '16.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-15" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/N° 7 Bonding Oil Haaröl.jpg" alt="Olaplex N° 7 Bonding Oil" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Olaplex</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">N° 7 Bonding Oil</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Pflege-Haaröl für Glanz und Hitzeschutz.</p>
+                        <p class="price">CHF 17.00</p>
+                        <div class="product-meta"><span class="badge">Marke: Olaplex</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Haaröl</span></div>
+                        <p class="description">Hochkonzentriertes Haaröl für intensiven Glanz und Hitzeschutz bis 232°C. 30 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-15">Menge</label><input id="qty-15" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-15" onclick="addToCart('product-15', 'Olaplex N° 7 Bonding Oil', '17.00')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-16" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Gloss Absolu Glaze Drops.jpg" alt="Kérastase Gloss Absolu Glaze Drops" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Gloss Absolu Glaze Drops</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Haaröl für Hochglanz und Strahlkraft.</p>
+                        <p class="price">CHF 35.00</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Haaröl</span></div>
+                        <p class="description">Leichte Öl-Tropfen für Hochglanz und geschmeidiges Haar. 45 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-16">Menge</label><input id="qty-16" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-16" onclick="addToCart('product-16', 'Kérastase Gloss Absolu Glaze Drops', '28.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-17" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Nanoil Rizinusöl Haaröl.jpg" alt="Nanoil Rizinusöl" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Nanoil</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Rizinusöl</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">100% natürliches Rizinusöl für Haar und Haut.</p>
+                        <p class="price">CHF 15.05</p>
+                        <div class="product-meta"><span class="badge">Marke: Nanoil</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Haaröl</span></div>
+                        <p class="description">100% natürliches Rizinusöl für Haarwachstum, Hautpflege und Nägel. 50 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-17">Menge</label><input id="qty-17" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-17" onclick="addToCart('product-17', 'Nanoil Rizinusöl', '15.05')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-18" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Wella Professionals Extra Volume Mousse.jpg" alt="Wella Professionals Extra Volume Mousse" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Wella Professionals</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Extra Volume Mousse</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Volumen-Mousse für feines Haar.</p>
+                        <p class="price">CHF 18.80</p>
+                        <div class="product-meta"><span class="badge">Marke: Wella Professionals</span><span class="badge">Haartyp: Fein</span><span class="badge">Kategorie: Mousse</span></div>
+                        <p class="description">Leichte Volumen-Mousse für langanhaltendes Volumen. 300 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-18">Menge</label><input id="qty-18" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-18" onclick="addToCart('product-18', 'Wella Professionals Extra Volume Mousse', '18.80')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-19" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Dynamic Fix Styling.jpg" alt="Wella Professionals Dynamic Fix" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Wella Professionals</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Dynamic Fix</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Styling-Spray für langanhaltenden Halt.</p>
+                        <p class="price">CHF 18.20</p>
+                        <div class="product-meta"><span class="badge">Marke: Wella Professionals</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Styling</span></div>
+                        <p class="description">Flexibles Haarspray für langanhaltenden Halt ohne Verklebung. 300 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-19">Menge</label><input id="qty-19" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-19" onclick="addToCart('product-19', 'Wella Professionals Dynamic Fix', '18.20')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-20" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Sebastian Re-shaper Hairspray Styling.jpg" alt="Sebastian Re-shaper Hairspray" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Sebastian</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Re-shaper Hairspray</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Festiguierendes Haarspray.</p>
+                        <p class="price">CHF 13.85</p>
+                        <div class="product-meta"><span class="badge">Marke: Sebastian</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Styling</span></div>
+                        <p class="description">Professionelles Haarspray mit starkem Halt. 300 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-20">Menge</label><input id="qty-20" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-20" onclick="addToCart('product-20', 'Sebastian Re-shaper Hairspray', '13.85')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-21" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Wella Professionals Sculpt Force Flubber XXL.jpg" alt="Wella Professionals Sculpt Force Flubber XXL" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Wella Professionals</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Sculpt Force Flubber XXL</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Styling-Gel für extra starken Halt.</p>
+                        <p class="price">CHF 14.50</p>
+                        <div class="product-meta"><span class="badge">Marke: Wella Professionals</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Styling</span></div>
+                        <p class="description">Flexibles Gel mit extra starkem Halt und Anti-Frizz-Effekt. 250 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-21">Menge</label><input id="qty-21" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-21" onclick="addToCart('product-21', 'Wella Professionals Sculpt Force Flubber XXL', '14.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-22" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/2616297-Goldwell-StyleSign-Texture-Lagoom-Jam-Styling-Gel-sehr-starker-Halt-150-ml.e99065f8.jpg" alt="Goldwell Texture Lagoom Jam" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Goldwell</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Texture Lagoom Jam</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Textur-Gel für definierten Halt.</p>
+                        <p class="price">CHF 12.30</p>
+                        <div class="product-meta"><span class="badge">Marke: Goldwell</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Styling</span></div>
+                        <p class="description">Textur-Gel für modernen Look mit mattem Finish. 200 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-22">Menge</label><input id="qty-22" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-22" onclick="addToCart('product-22', 'Goldwell Texture Lagoom Jam', '12.30')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-23" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Schwarzkopf Prof. The Salt.jpg" alt="Schwarzkopf Prof. The Salt" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Schwarzkopf Prof.</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">The Salt</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Salzwasser-Spray für Beach-Look.</p>
+                        <p class="price">CHF 16.05</p>
+                        <div class="product-meta"><span class="badge">Marke: Schwarzkopf Prof.</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Styling</span></div>
+                        <p class="description">Salzwasser-Spray für natürlichen Beach-Look mit Textur. 200 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-23">Menge</label><input id="qty-23" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-23" onclick="addToCart('product-23', 'Schwarzkopf Prof. The Salt', '16.05')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-24" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Dynamic Fix Styling.jpg" alt="Wella Professionals Pearl Styler XXL" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Wella Professionals</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Pearl Styler XXL</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Styling-Creme für Glanz und Kontrolle.</p>
+                        <p class="price">CHF 14.55</p>
+                        <div class="product-meta"><span class="badge">Marke: Wella Professionals</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Styling</span></div>
+                        <p class="description">Styling-Creme mit Perlmutt-Extrakt für Glanz und geschmeidige Kontrolle. 150 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-24">Menge</label><input id="qty-24" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-24" onclick="addToCart('product-24', 'Wella Professionals Pearl Styler XXL', '14.55')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-25" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Sebastian Re-shaper Hairspray Styling.jpg" alt="Schwarzkopf Prof. Super Hold Gel Lac" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Schwarzkopf Prof.</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Super Hold Gel Lac</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Ultra-starkes Styling-Gel.</p>
+                        <p class="price">CHF 21.05</p>
+                        <div class="product-meta"><span class="badge">Marke: Schwarzkopf Prof.</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Styling</span></div>
+                        <p class="description">Ultra-starkes Gel für maximalen Halt ohne Rückstände. 3 x 200 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-25">Menge</label><input id="qty-25" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-25" onclick="addToCart('product-25', 'Schwarzkopf Prof. Super Hold Gel Lac', '21.05')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-26" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Kérastase Défense Thermique Hitzeschutz.jpg" alt="Kérastase Défense Thermique" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Défense Thermique</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Hitzeschutz-Spray für geschütztes Styling.</p>
+                        <p class="price">CHF 30.50</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Beschädigt</span><span class="badge">Kategorie: Hitzeschutz</span></div>
+                        <p class="description">Hitzeschutz-Spray aus der Genesis Linie. Schützt bis 230°C. 150 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-26">Menge</label><input id="qty-26" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-26" onclick="addToCart('product-26', 'Kérastase Défense Thermique', '30.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-27" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/ghd Bodyguard Heat Protect Spray Hitzeschutz.jpg" alt="ghd Bodyguard Heat Protect Spray" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">ghd</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Bodyguard Heat Protect Spray</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Professionelles Hitzeschutz-Spray.</p>
+                        <p class="price">CHF 18.25</p>
+                        <div class="product-meta"><span class="badge">Marke: ghd</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Hitzeschutz</span></div>
+                        <p class="description">Leichtes Hitzeschutz-Spray für alle Styling-Tools. 120 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-27">Menge</label><input id="qty-27" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-27" onclick="addToCart('product-27', 'ghd Bodyguard Heat Protect Spray', '18.25')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-28" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/1669850-Kerastase-Genesis-Bain-Hydra-Fortifiant-250-ml.b923b198.jpg" alt="Kérastase Bain Hydra-Fortifiant" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Bain Hydra-Fortifiant</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Anti-Haarausfall Shampoo für geschwächtes Haar.</p>
+                        <p class="price">CHF 24.50</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Beschädigt</span><span class="badge">Kategorie: Shampoo</span></div>
+                        <p class="description">Stärkendes Shampoo aus der Genesis Linie gegen Haarausfall. 250 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-28">Menge</label><input id="qty-28" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-28" onclick="addToCart('product-28', 'Kérastase Bain Hydra-Fortifiant', '24.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-29" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Bain Force Männer-Shampoo.jpg" alt="Kérastase Bain Force Männer-Shampoo" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Bain Force Männer-Shampoo</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Shampoo für dünner werdendes Haar.</p>
+                        <p class="price">CHF 24.50</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Beschädigt</span><span class="badge">Kategorie: Shampoo</span></div>
+                        <p class="description">Männer-Shampoo aus der Genesis Homme Linie. 250 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-29">Menge</label><input id="qty-29" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-29" onclick="addToCart('product-29', 'Kérastase Bain Force Männer-Shampoo', '24.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-30" class="product-section">
+                <a href="products.html" class="btn btn-outline" style="margin-bottom:32px;">&larr; Zurück zur Übersicht</a>
+                <div class="product-detail-grid">
+                    <div class="product-gallery"><img src="images/Bain Crème Anti-Pelliculaire.jpg" alt="Kérastase Bain Crème Anti-Pelliculaire" /></div>
+                    <div class="product-info-detail">
+                        <span class="product-brand" style="font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted);">Kérastase</span>
+                        <h1 style="font-size:28px; font-weight:700; margin:8px 0;">Bain Crème Anti-Pelliculaire</h1>
+                        <p style="font-size:15px; color:var(--text-muted); margin:0 0 16px;">Anti-Schuppen Shampoo.</p>
+                        <p class="price">CHF 24.50</p>
+                        <div class="product-meta"><span class="badge">Marke: Kérastase</span><span class="badge">Haartyp: Alle</span><span class="badge">Kategorie: Shampoo</span></div>
+                        <p class="description">Sanftes Anti-Schuppen Shampoo aus der Symbiose Linie. 250 ml.</p>
+                        <div class="order-form">
+                            <h2>In den Warenkorb</h2>
+                            <div class="form-grid">
+                                <div class="form-group"><label for="qty-30">Menge</label><input id="qty-30" type="number" name="quantity" min="1" value="1" /></div>
+                                <div class="form-group full form-actions"><button class="btn btn-primary" type="button" id="add-btn-30" onclick="addToCart('product-30', 'Kérastase Bain Crème Anti-Pelliculaire', '24.50')">In den Warenkorb</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="product-default" class="product-not-found">
+                <h1 class="section-title">Produktdetail</h1>
+                <p class="section-subtitle">Wähle ein Produkt aus der Übersicht.</p>
+                <a href="products.html" class="btn btn-primary">Alle Produkte ansehen</a>
+            </div>
+
         </div>
     </section>
-
-    <nav class="detail-switcher" aria-label="Product switcher">
-        <a href="#p-sea-mist">ManeWave</a>
-        <a href="#p-cocoa-curl-cream">CurlCraft</a>
-        <a href="#p-revive-oil">CoilyKind</a>
-        <a href="#p-heat-protectant">SilkStraight</a>
-        <a href="#p-volume-foam">FineBloom</a>
-        <a href="#p-protein-mask">RepairRoot</a>
-        <a href="#p-anti-frizz-serum">GlossGuard</a>
-        <a href="#p-detox-shampoo">ScalpCalm</a>
-        <a href="#p-sulfate-free-shampoo">LuxLather</a>
-        <a href="#p-twist-butter">KinkCare</a>
-        <a href="#p-sleek-gel">StraightLine</a>
-        <a href="#p-define-hold-gel">CurlLab</a>
-    </nav>
-
-    <div aria-label="Product detail sections">
-        <section class="product-detail" id="p-sea-mist">
-            <div class="detail-layout">
-                <div class="gallery">
-                    <div class="gallery-main">
-                        <img src="https://images.unsplash.com/photo-1556906781-9a58d3d4b6b8?auto=format&fit=crop&w=1200&q=60" alt="ManeWave Sea Mist bottle image" />
-                    </div>
-                    <div class="thumbs">
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1520975869018-0b3b1e1b07f9?auto=format&fit=crop&w=600&q=60" alt="Sea Mist thumbnail 1" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=600&q=60" alt="Sea Mist thumbnail 2" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=60" alt="Sea Mist thumbnail 3" /></div>
-                    </div>
-                </div>
-
-                <div class="detail-info">
-                    <h1>ManeWave Sea Mist</h1>
-                    <p class="sub">Wavy hair + flexible heat protection.</p>
-                    <div class="specs">
-                        <span class="badge">Brand: ManeWave</span>
-                        <span class="badge">Hair type: Wavy</span>
-                        <span class="badge">Category: Heat Protectant</span>
-                        <span class="badge">Price: $24.90</span>
-                    </div>
-                    <p class="desc">
-                        A lightweight sea-mist spray for soft texture, movement, and heat protection.
-                        Perfect for day-after wave refresh and air-dry styling.
-                    </p>
-
-                    <div class="detail-actions">
-                        <a class="link-btn primary" href="quiz.html">See quiz recommendation</a>
-                        <a class="link-btn" href="products.html">Compare products</a>
-                    </div>
-
-                    <div class="order-panel" aria-label="Order form for ManeWave Sea Mist">
-                        <h2>Order this product</h2>
-                        <form class="order-grid" action="mailto:orders@haircare-style.test" method="post" enctype="text/plain">
-                            <input type="hidden" name="product" value="ManeWave Sea Mist" />
-                            <input type="hidden" name="price" value="24.90" />
-
-                            <div class="field">
-                                <label for="sea-name">Full name</label>
-                                <input id="sea-name" type="text" name="name" required />
-                            </div>
-                            <div class="field">
-                                <label for="sea-email">Email</label>
-                                <input id="sea-email" type="email" name="email" required />
-                            </div>
-                            <div class="field">
-                                <label for="sea-qty">Quantity</label>
-                                <input id="sea-qty" type="number" name="quantity" min="1" value="1" />
-                            </div>
-                            <div class="field">
-                                <label for="sea-delivery">Delivery</label>
-                                <select id="sea-delivery" name="delivery">
-                                    <option value="Standard">Standard</option>
-                                    <option value="Express">Express</option>
-                                </select>
-                            </div>
-                            <div class="field full">
-                                <label for="sea-address">Shipping address</label>
-                                <textarea id="sea-address" name="address" required placeholder="Street, ZIP, City, Country"></textarea>
-                            </div>
-                            <div class="full">
-                                <button class="primary" type="submit">Order via email</button>
-                                <p class="popup-sub" style="margin:10px 0 0;">
-                                    Demo checkout: opens your email client and sends an order request.
-                                </p>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <section class="section-title" style="margin-top:26px;">
-                <h2>Watch a routine</h2>
-                <p>Simple steps for wavy texture.</p>
-            </section>
-            <iframe class="iframe" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Haircare routine video" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="product-detail" id="p-cocoa-curl-cream">
-            <div class="detail-layout">
-                <div class="gallery">
-                    <div class="gallery-main">
-                        <img src="https://images.unsplash.com/photo-1520975693416-35a3a6b7f7e0?auto=format&fit=crop&w=1200&q=60" alt="CurlCraft Cocoa Curl Cream bottle image" />
-                    </div>
-                    <div class="thumbs">
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=600&q=60" alt="Curl cream thumbnail 1" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=60" alt="Curl cream thumbnail 2" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=60" alt="Curl cream thumbnail 3" /></div>
-                    </div>
-                </div>
-
-                <div class="detail-info">
-                    <h1>CurlCraft Cocoa Curl Cream</h1>
-                    <p class="sub">Curly hair + definition that lasts.</p>
-                    <div class="specs">
-                        <span class="badge">Brand: CurlCraft</span>
-                        <span class="badge">Hair type: Curly</span>
-                        <span class="badge">Category: Curl Cream</span>
-                        <span class="badge">Price: $32.00</span>
-                    </div>
-                    <p class="desc">
-                        A creamy, weight-friendly formula for bounce, definition, and humidity comfort.
-                        Use on damp hair for soft curls with a touchable finish.
-                    </p>
-
-                    <div class="order-panel">
-                        <h2>Order this product</h2>
-                        <form class="order-grid" action="mailto:orders@haircare-style.test" method="post" enctype="text/plain">
-                            <input type="hidden" name="product" value="CurlCraft Cocoa Curl Cream" />
-                            <input type="hidden" name="price" value="32.00" />
-                            <div class="field">
-                                <label for="cc-name">Full name</label>
-                                <input id="cc-name" type="text" name="name" required />
-                            </div>
-                            <div class="field">
-                                <label for="cc-email">Email</label>
-                                <input id="cc-email" type="email" name="email" required />
-                            </div>
-                            <div class="field">
-                                <label for="cc-qty">Quantity</label>
-                                <input id="cc-qty" type="number" name="quantity" min="1" value="1" />
-                            </div>
-                            <div class="field">
-                                <label for="cc-delivery">Delivery</label>
-                                <select id="cc-delivery" name="delivery">
-                                    <option value="Standard">Standard</option>
-                                    <option value="Express">Express</option>
-                                </select>
-                            </div>
-                            <div class="field full">
-                                <label for="cc-address">Shipping address</label>
-                                <textarea id="cc-address" name="address" required placeholder="Street, ZIP, City, Country"></textarea>
-                            </div>
-                            <div class="full">
-                                <button class="primary" type="submit">Order via email</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <section class="section-title" style="margin-top:26px;">
-                <h2>Watch a routine</h2>
-                <p>Curl definition steps.</p>
-            </section>
-            <iframe class="iframe" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Curl routine video" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="product-detail" id="p-revive-oil">
-            <div class="detail-layout">
-                <div class="gallery">
-                    <div class="gallery-main">
-                        <img src="https://images.unsplash.com/photo-1542903660-97df1d07a5b6?auto=format&fit=crop&w=1200&q=60" alt="CoilyKind Revive Hair Oil bottle image" />
-                    </div>
-                    <div class="thumbs">
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=60" alt="Hair oil thumbnail 1" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=60" alt="Hair oil thumbnail 2" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1524504388940-b1c172a1ee64?auto=format&fit=crop&w=600&q=60" alt="Hair oil thumbnail 3" /></div>
-                    </div>
-                </div>
-
-                <div class="detail-info">
-                    <h1>CoilyKind Revive Hair Oil</h1>
-                    <p class="sub">Coily moisture + smooth twists.</p>
-                    <div class="specs">
-                        <span class="badge">Brand: CoilyKind</span>
-                        <span class="badge">Hair type: Coily</span>
-                        <span class="badge">Category: Hair Oil</span>
-                        <span class="badge">Price: $44.50</span>
-                    </div>
-                    <p class="desc">
-                        A nourishing oil that helps seal moisture, reduce dryness, and create a polished twist finish.
-                        Use before braids/twists or as a scalp + ends refresher.
-                    </p>
-
-                    <div class="order-panel">
-                        <h2>Order this product</h2>
-                        <form class="order-grid" action="mailto:orders@haircare-style.test" method="post" enctype="text/plain">
-                            <input type="hidden" name="product" value="CoilyKind Revive Hair Oil" />
-                            <input type="hidden" name="price" value="44.50" />
-                            <div class="field">
-                                <label for="oil-name">Full name</label>
-                                <input id="oil-name" type="text" name="name" required />
-                            </div>
-                            <div class="field">
-                                <label for="oil-email">Email</label>
-                                <input id="oil-email" type="email" name="email" required />
-                            </div>
-                            <div class="field">
-                                <label for="oil-qty">Quantity</label>
-                                <input id="oil-qty" type="number" name="quantity" min="1" value="1" />
-                            </div>
-                            <div class="field">
-                                <label for="oil-delivery">Delivery</label>
-                                <select id="oil-delivery" name="delivery">
-                                    <option value="Standard">Standard</option>
-                                    <option value="Express">Express</option>
-                                </select>
-                            </div>
-                            <div class="field full">
-                                <label for="oil-address">Shipping address</label>
-                                <textarea id="oil-address" name="address" required placeholder="Street, ZIP, City, Country"></textarea>
-                            </div>
-                            <div class="full">
-                                <button class="primary" type="submit">Order via email</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <section class="section-title" style="margin-top:26px;">
-                <h2>Watch a routine</h2>
-                <p>Twist prep + sealing.</p>
-            </section>
-            <iframe class="iframe" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Oil routine video" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="product-detail" id="p-heat-protectant">
-            <div class="detail-layout">
-                <div class="gallery">
-                    <div class="gallery-main">
-                        <img src="https://images.unsplash.com/photo-1533740771643-3c7db3f42f3b?auto=format&fit=crop&w=1200&q=60" alt="SilkStraight Heat Protectant Spray bottle image" />
-                    </div>
-                    <div class="thumbs">
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=600&q=60" alt="Heat protectant thumbnail 1" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1520975693416-35a3a6b7f7e0?auto=format&fit=crop&w=600&q=60" alt="Heat protectant thumbnail 2" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=60" alt="Heat protectant thumbnail 3" /></div>
-                    </div>
-                </div>
-
-                <div class="detail-info">
-                    <h1>SilkStraight Heat Protectant Spray</h1>
-                    <p class="sub">Straight hair protection without stiffness.</p>
-                    <div class="specs">
-                        <span class="badge">Brand: SilkStraight</span>
-                        <span class="badge">Hair type: Straight</span>
-                        <span class="badge">Category: Heat Protectant</span>
-                        <span class="badge">Price: $19.90</span>
-                    </div>
-                    <p class="desc">
-                        Lightweight heat protection for blowouts and flat irons. Helps keep hair smooth, shiny, and frizz-aware.
-                    </p>
-
-                    <div class="order-panel">
-                        <h2>Order this product</h2>
-                        <form class="order-grid" action="mailto:orders@haircare-style.test" method="post" enctype="text/plain">
-                            <input type="hidden" name="product" value="SilkStraight Heat Protectant Spray" />
-                            <input type="hidden" name="price" value="19.90" />
-                            <div class="field">
-                                <label for="hs-name">Full name</label>
-                                <input id="hs-name" type="text" name="name" required />
-                            </div>
-                            <div class="field">
-                                <label for="hs-email">Email</label>
-                                <input id="hs-email" type="email" name="email" required />
-                            </div>
-                            <div class="field">
-                                <label for="hs-qty">Quantity</label>
-                                <input id="hs-qty" type="number" name="quantity" min="1" value="1" />
-                            </div>
-                            <div class="field">
-                                <label for="hs-delivery">Delivery</label>
-                                <select id="hs-delivery" name="delivery">
-                                    <option value="Standard">Standard</option>
-                                    <option value="Express">Express</option>
-                                </select>
-                            </div>
-                            <div class="field full">
-                                <label for="hs-address">Shipping address</label>
-                                <textarea id="hs-address" name="address" required placeholder="Street, ZIP, City, Country"></textarea>
-                            </div>
-                            <div class="full">
-                                <button class="primary" type="submit">Order via email</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <section class="section-title" style="margin-top:26px;">
-                <h2>Watch a routine</h2>
-                <p>Blowout prep.</p>
-            </section>
-            <iframe class="iframe" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Heat protectant routine video" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="product-detail" id="p-volume-foam">
-            <div class="detail-layout">
-                <div class="gallery">
-                    <div class="gallery-main">
-                        <img src="https://images.unsplash.com/photo-1520975869018-0b3b1e1b07f9?auto=format&fit=crop&w=1200&q=60" alt="FineBloom Volume Foam bottle image" />
-                    </div>
-                    <div class="thumbs">
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1556906781-9a58d3d4b6b8?auto=format&fit=crop&w=600&q=60" alt="Volume foam thumbnail 1" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=60" alt="Volume foam thumbnail 2" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=600&q=60" alt="Volume foam thumbnail 3" /></div>
-                    </div>
-                </div>
-
-                <div class="detail-info">
-                    <h1>FineBloom Volume Foam</h1>
-                    <p class="sub">Lift for fine / thin hair.</p>
-                    <div class="specs">
-                        <span class="badge">Brand: FineBloom</span>
-                        <span class="badge">Hair type: Fine / Thin</span>
-                        <span class="badge">Category: Volume Foam</span>
-                        <span class="badge">Price: $21.50</span>
-                    </div>
-                    <p class="desc">
-                        A soft-foaming styling product that creates root lift and airy movement without heaviness.
-                        Great for blow-dry or finger styling.
-                    </p>
-
-                    <div class="order-panel">
-                        <h2>Order this product</h2>
-                        <form class="order-grid" action="mailto:orders@haircare-style.test" method="post" enctype="text/plain">
-                            <input type="hidden" name="product" value="FineBloom Volume Foam" />
-                            <input type="hidden" name="price" value="21.50" />
-                            <div class="field">
-                                <label for="vf-name">Full name</label>
-                                <input id="vf-name" type="text" name="name" required />
-                            </div>
-                            <div class="field">
-                                <label for="vf-email">Email</label>
-                                <input id="vf-email" type="email" name="email" required />
-                            </div>
-                            <div class="field">
-                                <label for="vf-qty">Quantity</label>
-                                <input id="vf-qty" type="number" name="quantity" min="1" value="1" />
-                            </div>
-                            <div class="field">
-                                <label for="vf-delivery">Delivery</label>
-                                <select id="vf-delivery" name="delivery">
-                                    <option value="Standard">Standard</option>
-                                    <option value="Express">Express</option>
-                                </select>
-                            </div>
-                            <div class="field full">
-                                <label for="vf-address">Shipping address</label>
-                                <textarea id="vf-address" name="address" required placeholder="Street, ZIP, City, Country"></textarea>
-                            </div>
-                            <div class="full">
-                                <button class="primary" type="submit">Order via email</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <section class="section-title" style="margin-top:26px;">
-                <h2>Watch a routine</h2>
-                <p>Root lift technique.</p>
-            </section>
-            <iframe class="iframe" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Volume foam routine video" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="product-detail" id="p-protein-mask">
-            <div class="detail-layout">
-                <div class="gallery">
-                    <div class="gallery-main">
-                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=60" alt="RepairRoot Protein Mask bottle image" />
-                    </div>
-                    <div class="thumbs">
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1542903660-97df1d07a5b6?auto=format&fit=crop&w=600&q=60" alt="Protein mask thumbnail 1" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1520975869018-0b3b1e1b07f9?auto=format&fit=crop&w=600&q=60" alt="Protein mask thumbnail 2" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=600&q=60" alt="Protein mask thumbnail 3" /></div>
-                    </div>
-                </div>
-
-                <div class="detail-info">
-                    <h1>RepairRoot Protein Mask</h1>
-                    <p class="sub">Deep repair for curls that need strength.</p>
-                    <div class="specs">
-                        <span class="badge">Brand: RepairRoot</span>
-                        <span class="badge">Hair type: Curly / Coily</span>
-                        <span class="badge">Category: Mask</span>
-                        <span class="badge">Price: $36.00</span>
-                    </div>
-                    <p class="desc">
-                        A deep conditioning mask that helps restore strength and softness.
-                        Use after cleansing and leave for 5–10 minutes.
-                    </p>
-
-                    <div class="order-panel">
-                        <h2>Order this product</h2>
-                        <form class="order-grid" action="mailto:orders@haircare-style.test" method="post" enctype="text/plain">
-                            <input type="hidden" name="product" value="RepairRoot Protein Mask" />
-                            <input type="hidden" name="price" value="36.00" />
-                            <div class="field">
-                                <label for="rm-name">Full name</label>
-                                <input id="rm-name" type="text" name="name" required />
-                            </div>
-                            <div class="field">
-                                <label for="rm-email">Email</label>
-                                <input id="rm-email" type="email" name="email" required />
-                            </div>
-                            <div class="field">
-                                <label for="rm-qty">Quantity</label>
-                                <input id="rm-qty" type="number" name="quantity" min="1" value="1" />
-                            </div>
-                            <div class="field">
-                                <label for="rm-delivery">Delivery</label>
-                                <select id="rm-delivery" name="delivery">
-                                    <option value="Standard">Standard</option>
-                                    <option value="Express">Express</option>
-                                </select>
-                            </div>
-                            <div class="field full">
-                                <label for="rm-address">Shipping address</label>
-                                <textarea id="rm-address" name="address" required placeholder="Street, ZIP, City, Country"></textarea>
-                            </div>
-                            <div class="full">
-                                <button class="primary" type="submit">Order via email</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <section class="section-title" style="margin-top:26px;">
-                <h2>Watch a routine</h2>
-                <p>Mask application.</p>
-            </section>
-            <iframe class="iframe" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Protein mask routine video" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="product-detail" id="p-anti-frizz-serum">
-            <div class="detail-layout">
-                <div class="gallery">
-                    <div class="gallery-main">
-                        <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1200&q=60" alt="GlossGuard Anti-Frizz Serum bottle image" />
-                    </div>
-                    <div class="thumbs">
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1556906781-9a58d3d4b6b8?auto=format&fit=crop&w=600&q=60" alt="Serum thumbnail 1" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=600&q=60" alt="Serum thumbnail 2" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1524504388940-b1c172a1ee64?auto=format&fit=crop&w=600&q=60" alt="Serum thumbnail 3" /></div>
-                    </div>
-                </div>
-
-                <div class="detail-info">
-                    <h1>GlossGuard Anti-Frizz Serum</h1>
-                    <p class="sub">Smooth, glossy control for waves.</p>
-                    <div class="specs">
-                        <span class="badge">Brand: GlossGuard</span>
-                        <span class="badge">Hair type: Wavy</span>
-                        <span class="badge">Category: Oil / Serum</span>
-                        <span class="badge">Price: $29.90</span>
-                    </div>
-                    <p class="desc">
-                        Lightweight serum for frizz control, shine, and soft definition. Great for finishing and flyaway smoothing.
-                    </p>
-
-                    <div class="order-panel">
-                        <h2>Order this product</h2>
-                        <form class="order-grid" action="mailto:orders@haircare-style.test" method="post" enctype="text/plain">
-                            <input type="hidden" name="product" value="GlossGuard Anti-Frizz Serum" />
-                            <input type="hidden" name="price" value="29.90" />
-                            <div class="field">
-                                <label for="gs-name">Full name</label>
-                                <input id="gs-name" type="text" name="name" required />
-                            </div>
-                            <div class="field">
-                                <label for="gs-email">Email</label>
-                                <input id="gs-email" type="email" name="email" required />
-                            </div>
-                            <div class="field">
-                                <label for="gs-qty">Quantity</label>
-                                <input id="gs-qty" type="number" name="quantity" min="1" value="1" />
-                            </div>
-                            <div class="field">
-                                <label for="gs-delivery">Delivery</label>
-                                <select id="gs-delivery" name="delivery">
-                                    <option value="Standard">Standard</option>
-                                    <option value="Express">Express</option>
-                                </select>
-                            </div>
-                            <div class="field full">
-                                <label for="gs-address">Shipping address</label>
-                                <textarea id="gs-address" name="address" required placeholder="Street, ZIP, City, Country"></textarea>
-                            </div>
-                            <div class="full">
-                                <button class="primary" type="submit">Order via email</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <section class="section-title" style="margin-top:26px;">
-                <h2>Watch a routine</h2>
-                <p>Finish + shine.</p>
-            </section>
-            <iframe class="iframe" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Serum routine video" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="product-detail" id="p-detox-shampoo">
-            <div class="detail-layout">
-                <div class="gallery">
-                    <div class="gallery-main">
-                        <img src="https://images.unsplash.com/photo-1524504388940-b1c172a1ee64?auto=format&fit=crop&w=1200&q=60" alt="ScalpCalm Detox Shampoo bottle image" />
-                    </div>
-                    <div class="thumbs">
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=60" alt="Detox shampoo thumbnail 1" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1556906781-9a58d3d4b6b8?auto=format&fit=crop&w=600&q=60" alt="Detox shampoo thumbnail 2" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1520975869018-0b3b1e1b07f9?auto=format&fit=crop&w=600&q=60" alt="Detox shampoo thumbnail 3" /></div>
-                    </div>
-                </div>
-
-                <div class="detail-info">
-                    <h1>ScalpCalm Detox Shampoo</h1>
-                    <p class="sub">Clean scalp feeling for straighter textures.</p>
-                    <div class="specs">
-                        <span class="badge">Brand: ScalpCalm</span>
-                        <span class="badge">Hair type: Straight</span>
-                        <span class="badge">Category: Shampoo</span>
-                        <span class="badge">Price: $18.25</span>
-                    </div>
-                    <p class="desc">
-                        A refreshing detox shampoo that helps lift buildup and supports an energized scalp routine.
-                        Follow with conditioner for a soft finish.
-                    </p>
-
-                    <div class="order-panel">
-                        <h2>Order this product</h2>
-                        <form class="order-grid" action="mailto:orders@haircare-style.test" method="post" enctype="text/plain">
-                            <input type="hidden" name="product" value="ScalpCalm Detox Shampoo" />
-                            <input type="hidden" name="price" value="18.25" />
-                            <div class="field">
-                                <label for="sd-name">Full name</label>
-                                <input id="sd-name" type="text" name="name" required />
-                            </div>
-                            <div class="field">
-                                <label for="sd-email">Email</label>
-                                <input id="sd-email" type="email" name="email" required />
-                            </div>
-                            <div class="field">
-                                <label for="sd-qty">Quantity</label>
-                                <input id="sd-qty" type="number" name="quantity" min="1" value="1" />
-                            </div>
-                            <div class="field">
-                                <label for="sd-delivery">Delivery</label>
-                                <select id="sd-delivery" name="delivery">
-                                    <option value="Standard">Standard</option>
-                                    <option value="Express">Express</option>
-                                </select>
-                            </div>
-                            <div class="field full">
-                                <label for="sd-address">Shipping address</label>
-                                <textarea id="sd-address" name="address" required placeholder="Street, ZIP, City, Country"></textarea>
-                            </div>
-                            <div class="full">
-                                <button class="primary" type="submit">Order via email</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <section class="section-title" style="margin-top:26px;">
-                <h2>Watch a routine</h2>
-                <p>Scalp cleanse routine.</p>
-            </section>
-            <iframe class="iframe" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Detox shampoo routine video" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="product-detail" id="p-sulfate-free-shampoo">
-            <div class="detail-layout">
-                <div class="gallery">
-                    <div class="gallery-main">
-                        <img src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1200&q=60" alt="LuxLather Sulfate-Free Shampoo bottle image" />
-                    </div>
-                    <div class="thumbs">
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1520975693416-35a3a6b7f7e0?auto=format&fit=crop&w=600&q=60" alt="Sulfate-free thumbnail 1" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=60" alt="Sulfate-free thumbnail 2" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=600&q=60" alt="Sulfate-free thumbnail 3" /></div>
-                    </div>
-                </div>
-
-                <div class="detail-info">
-                    <h1>LuxLather Sulfate-Free Shampoo</h1>
-                    <p class="sub">Gentle cleanse for wavy styles.</p>
-                    <div class="specs">
-                        <span class="badge">Brand: LuxLather</span>
-                        <span class="badge">Hair type: Wavy</span>
-                        <span class="badge">Category: Shampoo</span>
-                        <span class="badge">Price: $34.50</span>
-                    </div>
-                    <p class="desc">
-                        Sulfate-free cleansing for soft, touchable waves. Keeps hair feeling balanced and ready for styling.
-                    </p>
-
-                    <div class="order-panel">
-                        <h2>Order this product</h2>
-                        <form class="order-grid" action="mailto:orders@haircare-style.test" method="post" enctype="text/plain">
-                            <input type="hidden" name="product" value="LuxLather Sulfate-Free Shampoo" />
-                            <input type="hidden" name="price" value="34.50" />
-                            <div class="field">
-                                <label for="ls-name">Full name</label>
-                                <input id="ls-name" type="text" name="name" required />
-                            </div>
-                            <div class="field">
-                                <label for="ls-email">Email</label>
-                                <input id="ls-email" type="email" name="email" required />
-                            </div>
-                            <div class="field">
-                                <label for="ls-qty">Quantity</label>
-                                <input id="ls-qty" type="number" name="quantity" min="1" value="1" />
-                            </div>
-                            <div class="field">
-                                <label for="ls-delivery">Delivery</label>
-                                <select id="ls-delivery" name="delivery">
-                                    <option value="Standard">Standard</option>
-                                    <option value="Express">Express</option>
-                                </select>
-                            </div>
-                            <div class="field full">
-                                <label for="ls-address">Shipping address</label>
-                                <textarea id="ls-address" name="address" required placeholder="Street, ZIP, City, Country"></textarea>
-                            </div>
-                            <div class="full">
-                                <button class="primary" type="submit">Order via email</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <section class="section-title" style="margin-top:26px;">
-                <h2>Watch a routine</h2>
-                <p>Waves from the wash.</p>
-            </section>
-            <iframe class="iframe" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Sulfate-free routine video" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="product-detail" id="p-twist-butter">
-            <div class="detail-layout">
-                <div class="gallery">
-                    <div class="gallery-main">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=60" alt="KinkCare Twist Butter bottle image" />
-                    </div>
-                    <div class="thumbs">
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1542903660-97df1d07a5b6?auto=format&fit=crop&w=600&q=60" alt="Twist butter thumbnail 1" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=600&q=60" alt="Twist butter thumbnail 2" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1524504388940-b1c172a1ee64?auto=format&fit=crop&w=600&q=60" alt="Twist butter thumbnail 3" /></div>
-                    </div>
-                </div>
-
-                <div class="detail-info">
-                    <h1>KinkCare Twist Butter</h1>
-                    <p class="sub">Luxury twist support for coily hair.</p>
-                    <div class="specs">
-                        <span class="badge">Brand: KinkCare</span>
-                        <span class="badge">Hair type: Coily</span>
-                        <span class="badge">Category: Styling Butter</span>
-                        <span class="badge">Price: $48.00</span>
-                    </div>
-                    <p class="desc">
-                        A rich twist butter that helps reduce dryness and encourages definition.
-                        Smooth into sections for clean, long-lasting twists.
-                    </p>
-
-                    <div class="order-panel">
-                        <h2>Order this product</h2>
-                        <form class="order-grid" action="mailto:orders@haircare-style.test" method="post" enctype="text/plain">
-                            <input type="hidden" name="product" value="KinkCare Twist Butter" />
-                            <input type="hidden" name="price" value="48.00" />
-                            <div class="field">
-                                <label for="kt-name">Full name</label>
-                                <input id="kt-name" type="text" name="name" required />
-                            </div>
-                            <div class="field">
-                                <label for="kt-email">Email</label>
-                                <input id="kt-email" type="email" name="email" required />
-                            </div>
-                            <div class="field">
-                                <label for="kt-qty">Quantity</label>
-                                <input id="kt-qty" type="number" name="quantity" min="1" value="1" />
-                            </div>
-                            <div class="field">
-                                <label for="kt-delivery">Delivery</label>
-                                <select id="kt-delivery" name="delivery">
-                                    <option value="Standard">Standard</option>
-                                    <option value="Express">Express</option>
-                                </select>
-                            </div>
-                            <div class="field full">
-                                <label for="kt-address">Shipping address</label>
-                                <textarea id="kt-address" name="address" required placeholder="Street, ZIP, City, Country"></textarea>
-                            </div>
-                            <div class="full">
-                                <button class="primary" type="submit">Order via email</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <section class="section-title" style="margin-top:26px;">
-                <h2>Watch a routine</h2>
-                <p>Twist styling steps.</p>
-            </section>
-            <iframe class="iframe" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Twist routine video" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="product-detail" id="p-sleek-gel">
-            <div class="detail-layout">
-                <div class="gallery">
-                    <div class="gallery-main">
-                        <img src="https://images.unsplash.com/photo-1520975693416-35a3a6b7f7e0?auto=format&fit=crop&w=1200&q=60" alt="StraightLine Sleek Styling Gel bottle image" />
-                    </div>
-                    <div class="thumbs">
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=600&q=60" alt="Sleek gel thumbnail 1" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=60" alt="Sleek gel thumbnail 2" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1556906781-9a58d3d4b6b8?auto=format&fit=crop&w=600&q=60" alt="Sleek gel thumbnail 3" /></div>
-                    </div>
-                </div>
-
-                <div class="detail-info">
-                    <h1>StraightLine Sleek Styling Gel</h1>
-                    <p class="sub">Brushable hold for smooth straight looks.</p>
-                    <div class="specs">
-                        <span class="badge">Brand: StraightLine</span>
-                        <span class="badge">Hair type: Straight</span>
-                        <span class="badge">Category: Styling Gel / Cream</span>
-                        <span class="badge">Price: $27.00</span>
-                    </div>
-                    <p class="desc">
-                        A brushable gel for control and shine. Helps you create clean parts, sleek ponytails, and flyaway control.
-                    </p>
-
-                    <div class="order-panel">
-                        <h2>Order this product</h2>
-                        <form class="order-grid" action="mailto:orders@haircare-style.test" method="post" enctype="text/plain">
-                            <input type="hidden" name="product" value="StraightLine Sleek Styling Gel" />
-                            <input type="hidden" name="price" value="27.00" />
-                            <div class="field">
-                                <label for="sl-name">Full name</label>
-                                <input id="sl-name" type="text" name="name" required />
-                            </div>
-                            <div class="field">
-                                <label for="sl-email">Email</label>
-                                <input id="sl-email" type="email" name="email" required />
-                            </div>
-                            <div class="field">
-                                <label for="sl-qty">Quantity</label>
-                                <input id="sl-qty" type="number" name="quantity" min="1" value="1" />
-                            </div>
-                            <div class="field">
-                                <label for="sl-delivery">Delivery</label>
-                                <select id="sl-delivery" name="delivery">
-                                    <option value="Standard">Standard</option>
-                                    <option value="Express">Express</option>
-                                </select>
-                            </div>
-                            <div class="field full">
-                                <label for="sl-address">Shipping address</label>
-                                <textarea id="sl-address" name="address" required placeholder="Street, ZIP, City, Country"></textarea>
-                            </div>
-                            <div class="full">
-                                <button class="primary" type="submit">Order via email</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <section class="section-title" style="margin-top:26px;">
-                <h2>Watch a routine</h2>
-                <p>Sleek ponytail steps.</p>
-            </section>
-            <iframe class="iframe" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Sleek gel routine video" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="product-detail" id="p-define-hold-gel">
-            <div class="detail-layout">
-                <div class="gallery">
-                    <div class="gallery-main">
-                        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=60" alt="CurlLab Define & Hold Gel bottle image" />
-                    </div>
-                    <div class="thumbs">
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1520975693416-35a3a6b7f7e0?auto=format&fit=crop&w=600&q=60" alt="Define gel thumbnail 1" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=600&q=60" alt="Define gel thumbnail 2" /></div>
-                        <div class="thumb"><img src="https://images.unsplash.com/photo-1520975869018-0b3b1e1b07f9?auto=format&fit=crop&w=600&q=60" alt="Define gel thumbnail 3" /></div>
-                    </div>
-                </div>
-
-                <div class="detail-info">
-                    <h1>CurlLab Define & Hold Gel</h1>
-                    <p class="sub">Touchable hold for curly texture.</p>
-                    <div class="specs">
-                        <span class="badge">Brand: CurlLab</span>
-                        <span class="badge">Hair type: Curly</span>
-                        <span class="badge">Category: Styling Gel / Cream</span>
-                        <span class="badge">Price: $25.90</span>
-                    </div>
-                    <p class="desc">
-                        A defining gel that supports curl shape and reduces frizz without crunch.
-                        Apply to damp hair and scrunch for bounce.
-                    </p>
-
-                    <div class="order-panel">
-                        <h2>Order this product</h2>
-                        <form class="order-grid" action="mailto:orders@haircare-style.test" method="post" enctype="text/plain">
-                            <input type="hidden" name="product" value="CurlLab Define & Hold Gel" />
-                            <input type="hidden" name="price" value="25.90" />
-                            <div class="field">
-                                <label for="cg-name">Full name</label>
-                                <input id="cg-name" type="text" name="name" required />
-                            </div>
-                            <div class="field">
-                                <label for="cg-email">Email</label>
-                                <input id="cg-email" type="email" name="email" required />
-                            </div>
-                            <div class="field">
-                                <label for="cg-qty">Quantity</label>
-                                <input id="cg-qty" type="number" name="quantity" min="1" value="1" />
-                            </div>
-                            <div class="field">
-                                <label for="cg-delivery">Delivery</label>
-                                <select id="cg-delivery" name="delivery">
-                                    <option value="Standard">Standard</option>
-                                    <option value="Express">Express</option>
-                                </select>
-                            </div>
-                            <div class="field full">
-                                <label for="cg-address">Shipping address</label>
-                                <textarea id="cg-address" name="address" required placeholder="Street, ZIP, City, Country"></textarea>
-                            </div>
-                            <div class="full">
-                                <button class="primary" type="submit">Order via email</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <section class="section-title" style="margin-top:26px;">
-                <h2>Watch a routine</h2>
-                <p>Define + scrunch.</p>
-            </section>
-            <iframe class="iframe" src="https://www.youtube.com/embed/M7lc1UVf-VE" title="Define gel routine video" frameborder="0" allowfullscreen></iframe>
-        </section>
-    </div>
 </main>
 
 <footer>
-    <div class="container footer-inner">
-        <div>
-            <p style="font-weight:800; color:var(--text);">Haircare Style Shop</p>
-            <p>Grey-white minimal style. No frameworks.</p>
-        </div>
-        <div class="footer-links" aria-label="Footer links">
-            <a href="products.html">Products</a>
-            <a href="quiz.html">Quiz</a>
-            <a href="styling-guide.html">Styling Guide</a>
-            <a href="contact.html">Contact</a>
-        </div>
+    <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h3>Care To Style</h3>
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Produkte</a>
+                    <a href="brands.html">Marken</a>
+                    <a href="contact.html">Kontakt</a>
+                </div>
+                <div class="footer-col"><h4>Zahlungsmethoden</h4>
+                    <div class="payment-methods">
+                        <span>Visa</span>
+                        <span>Mastercard</span>
+                        <span>TWINT</span>
+                        <span>PostFinance</span>
+                        <span>PayPal</span>
+                        <span>Rechnung</span>
+                        <span>Vorauskasse</span>
+                    </div>
+                </div>
+                <div class="footer-col"><h4>Service</h4>
+                    <a href="contact.html">Kontakt</a>
+                </div>
+            </div>
+        <div class="footer-bottom"><p>© 2026 Care To Style.</p></div>
     </div>
 </footer>
+<script src="cart.js"></script>
 </body>
 </html>
-
