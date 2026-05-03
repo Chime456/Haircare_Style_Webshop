@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(Get-ChildItem -Recurse \"C:\\\\Users\\\\chime\\\\Documents\\\\TBZ\\\\M293\\\\HTML\\\\haircare_style_webshop\" -Force)",
-      "Bash(Select-Object FullName)"
-    ]
-  }
-}
