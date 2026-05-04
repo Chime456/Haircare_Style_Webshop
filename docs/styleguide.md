@@ -1,12 +1,13 @@
-# Styling Guide - Haircare Style Webshop
+# Styling Guide - Care To Style Webshop
 
 ## Design-Prinzipien
 
-1. **Hell & Minimal** - Weisse Hintergruende, dezente Akzente
-2. **Texture-first** - Fokus auf verschiedene Haartypen
-3. **Accessibility** - Skip-Links, ARIA-Labels, Fokus-States
-4. **Responsive** - Mobile, Tablet, Desktop
-5. **100% HTML/CSS** - Keine Frameworks, minimale JS
+1. **Premium Gold Theme** - Gold (`#c5a572`), Grey und Weiss als Hauptfarben
+2. **Uppercase Typografie** - Alle Titel, Navigation und Buttons in Grossbuchstaben
+3. **Grosse Typografie** - Auffaellige, fette Ueberschriften fuer maximale Wirkung
+4. **Accessibility** - Skip-Links, ARIA-Labels, Fokus-States
+5. **Responsive** - Mobile, Tablet, Desktop mit 3 Breakpoints
+6. **100% HTML/CSS** - Keine Frameworks, minimale JS (nur Warenkorb & Popups)
 
 ---
 
@@ -15,20 +16,24 @@
 | Variable | Wert | Verwendung |
 |----------|------|------------|
 | `--bg` | `#ffffff` | Haupt-Hintergrund |
-| `--bg-alt` | `#f7f7f7` | Alternate Sektionen |
+| `--bg-alt` | `#f2f0ed` | Alternate Sektionen, Footer |
 | `--panel` | `#ffffff` | Card/Panel Hintergrund |
-| `--text` | `#111111` | Primaerer Text, Buttons |
-| `--text-muted` | `#6b6b6b` | Sekundaerer Text, Labels |
-| `--border` | `#e5e5e5` | Rahmen, Trennlinien |
+| `--text` | `#2c2c2c` | Primaerer Text, Buttons |
+| `--text-muted` | `#6e6e6e` | Sekundaerer Text, Labels |
+| `--gold` | `#c5a572` | Akzentfarbe, Hover, Active |
+| `--gold-dark` | `#a88b5a` | Hover-Buttons |
+| `--gold-light` | `#f5efe7` | Leichte Akzent-Hintergruende |
+| `--border` | `#d9d4ce` | Rahmen, Trennlinien |
 | `--shadow` | `0 4px 20px rgba(0,0,0,0.06)` | Card Schatten |
-| `--shadow-hover` | `0 8px 30px rgba(0,0,0,0.1)` | Hover Schatten |
+| `--shadow-hover` | `0 8px 30px rgba(197,165,114,0.15)` | Hover Schatten |
 
 ```
-#111111 (Text)      ████████████████████
-#6b6b6b (Muted)     ████████████████████
-#e5e5e5 (Border)    ████████████████████
-#f7f7f7 (Bg-alt)    ████████████████████
-#ffffff (Bg)        ████████████████████
+#2c2c2c (Text)      ████████████████████
+#c5a572 (Gold)       ████████████████████
+#6e6e6e (Muted)      ████████████████████
+#d9d4ce (Border)     ████████████████████
+#f2f0ed (Bg-alt)     ████████████████████
+#ffffff (Bg)         ████████████████████
 ```
 
 ---
@@ -37,23 +42,23 @@
 
 ### Schriftfamilie
 ```css
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-             Helvetica, Arial, sans-serif;
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 ```
 
 ### Schriftgroessen
 
-| Element | Groesse | Weight | Zeilenhoehe |
-|---------|---------|--------|-------------|
-| Hero Title | `clamp(32px, 5vw, 56px)` | 800 | 1.1 |
-| Section Title | 28px | 700 | - |
-| Product Name | 14px | 600 | - |
-| Product Price | 16px | 700 | - |
-| Body Text | 14px | 400 | 1.6 |
+| Element | Groesse | Weight | Besonderheiten |
+|---------|---------|--------|----------------|
+| Hero Title | `clamp(38px, 5vw, 64px)` | 800 | uppercase |
+| Section Title | 32px | 700 | uppercase, letter-spacing |
+| Product Name | 15px | 600 | - |
+| Product Price | 18px | 700 | - |
+| Body Text | 15px | 400 | line-height: 1.7 |
 | Labels | 13px | 500 | - |
+| Nav Links | 13px | 600 | uppercase, letter-spacing: 0.08em |
+| Logo | 18px | 700 | uppercase, letter-spacing: 0.1em |
 | Badges | 12px | 500 | - |
-| Nav Links | 14px | 500 | - |
-| Logo | 16px | 700 | - |
+| Newsletter Overlay | 15px | - | color: #fff |
 
 ---
 
@@ -61,14 +66,14 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 
 | Element | Wert |
 |---------|------|
-| Container Max | 1200px |
-| Container Padding | 0 24px |
+| Container Max | 1400px |
+| Container Padding | 0 32px (Desktop), 0 24px (Tablet), 0 20px (Mobile) |
 | Section Padding | 60px 0 |
 | Section Title Margin | 0 0 8px |
 | Section Subtitle Margin | 0 0 32px |
-| Grid Gap | 20px |
+| Grid Gap | 24px |
 | Card Padding | 16px |
-| Button Padding | 12px 24px |
+| Button Padding | 14px 28px |
 
 ### Border Radius
 | Element | Wert |
@@ -83,25 +88,31 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 
 ### Header
 ```
-sticky, weisser Hintergrund, 1px Border unten
-Flex-Layout: Logo links, Nav mittig, Cart rechts
+sticky, position: fixed, weisser Hintergrund, 1px Border unten
+Flex-Layout: Logo links, Nav absolut zentriert, Cart Icon rechts
+Padding: 20px 0 (Desktop), 18px 0 (Tablet)
 ```
 
 ### Navigation
-- Horizontale Links, 28px Abstand
-- Aktiver Link: untere Border in Textfarbe
-- Hover: Farbe wechselt zu `--text`
+- Horizontale Links, 36px Abstand, uppercase, letter-spacing: 0.08em
+- Aktiver Link: goldene Farbe + untere Border in Gold
+- Hover: Farbe wechselt zu `--gold`
+- Tablet: Nav wird statisch, gap reduziert auf 14px
+- Mobile: Nav wrapped, zentriert
 
 ### Buttons
 ```css
 /* Primary */
-background: var(--text); color: var(--bg);
-padding: 12px 24px; border-radius: var(--radius);
-font-weight: 600; font-size: 14px;
+background: var(--gold); color: #fff;
+padding: 14px 28px; border-radius: var(--radius);
+font-weight: 600; font-size: 14px; text-transform: uppercase;
 
 /* Outline */
 background: transparent; color: var(--text);
 border: 1px solid var(--border);
+
+/* Small */
+padding: 10px 18px; font-size: 12px;
 ```
 
 ### Produkt-Karten
@@ -110,26 +121,79 @@ Border: 1px solid var(--border)
 Border-Radius: var(--radius-lg)
 Overflow: hidden
 Hover: shadow-hover + translateY(-2px)
-Bild: aspect-ratio: 1, object-fit: cover
+Bild: aspect-ratio: 1, object-fit: cover (oder contain bei speziellen Produkten)
+Titel: 15px, uppercase
+Preis: 18px, bold
 ```
 
-### Marken-Karten
+### Marken-Karten (Brands Page)
 ```
 Border: 1px solid var(--border)
 Border-Radius: var(--radius-lg)
-Padding: 28px 20px
+Padding: 32px 24px
 Text: zentriert
-Hover: border-color: var(--text) + shadow
+Hover: border-color: var(--gold) + shadow
+```
+
+### Newsletter (Inline)
+```
+Full-width Section, Hintergrund: var(--text) (#2c2c2c)
+Min-Height: 500px (Desktop), 350px (Mobile)
+Text: weiss, zentriert
+Formular: Email-Input + Button nebeneinander
+Mobile: Formular stapelt vertikal
+```
+
+### Newsletter-Popup
+```
+Overlay: fixed, inset: 0, background: rgba(0,0,0,0.5)
+Box: max-width 480px, zentriert, weiss
+Erscheint nur beim ersten Besuch (sessionStorage)
+Schliessen via X-Button oder Bestaetigung
+```
+
+### Warenkorb
+```
+Badge: absolut positioniert, gold, rund, min-width: 18px
+Cart Items: Border-bottom Trennung, Flex-Layout
+Mengen-Steuerung: +/- Buttons, Anzahl-Anzeige
+Gesamt: rechtsbuendig, bold
+Checkout-Button: gold, full-width
+```
+
+### Payment-Badges (Footer)
+```
+Span-Tags mit Border, Border-Radius, Padding
+Visa, Mastercard, TWINT, PostFinance, PayPal, Rechnung, Vorauskasse
+```
+
+### FAQ-Akkordeon
+```
+details/summary Element
+Border: 1px solid var(--border)
+Border-Radius: var(--radius)
+Padding: 20px
+Cursor: pointer
+```
+
+### Ueber-Uns-Karten
+```
+Border: 1px solid var(--border)
+Border-Radius: var(--radius-lg)
+Padding: 32px 24px
+Text: zentriert
+Hover: border-color: var(--gold) + shadow
+3-Spalten-Grid
 ```
 
 ### Formular-Elemente
 ```
-Padding: 10px 14px
+Padding: 12px 16px
 Border: 1px solid var(--border)
 Border-Radius: var(--radius)
 Background: var(--bg)
-Focus: border-color: var(--text), outline: none
-Textarea: min-height: 100px, resize: vertical
+Focus: border-color: var(--gold), outline: none
+Textarea: min-height: 120px, resize: vertical
 ```
 
 ### Badges
@@ -141,60 +205,64 @@ Border-Radius: var(--radius-sm)
 Font-Size: 12px
 ```
 
-### Video-Karten
-```
-Border: 1px solid var(--border)
-Border-Radius: var(--radius-lg)
-Overflow: hidden
-iframe: width: 100%, aspect-ratio: 16/9
-```
-
 ### Footer
 ```
 Background: var(--bg-alt)
 Border-Top: 1px solid var(--border)
 Padding: 48px 0 24px
-Grid: 2fr 1fr 1fr 1fr
+Grid: 3 Spalten (Nav, Zahlungsmethoden, Service)
 ```
 
 ---
 
 ## Layout-System
 
-### Produkt-Grid / Marken-Grid
-```css
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 20px;
-
-@media (max-width: 980px) {
-    grid-template-columns: repeat(2, 1fr);
-}
-@media (max-width: 560px) {
-    grid-template-columns: 1fr;
-}
-```
-
-### Video-Grid
+### Produkt-Grid
 ```css
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 gap: 24px;
 
-@media (max-width: 980px) {
-    grid-template-columns: 1fr;
-}
+@media (max-width: 980px) { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 560px) { grid-template-columns: 1fr; }
 ```
 
-### Kontakt-Grid / Produkt-Detail-Grid
+### Marken-Grid (Brands Page)
+```css
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+
+@media (max-width: 980px) { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 560px) { grid-template-columns: 1fr; }
+```
+
+### Ueber-Uns-Grid
+```css
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+
+@media (max-width: 980px) { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 560px) { grid-template-columns: 1fr; }
+```
+
+### Produkt-Detail-Grid
 ```css
 display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 48px;
 
-@media (max-width: 980px) {
-    grid-template-columns: 1fr;
-}
+@media (max-width: 980px) { grid-template-columns: 1fr; }
+```
+
+### Kontakt-Grid
+```css
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 48px;
+
+@media (max-width: 980px) { grid-template-columns: 1fr; }
 ```
 
 ### Formular-Grid
@@ -205,20 +273,16 @@ gap: 16px;
 
 .full { grid-column: 1 / -1; }
 
-@media (max-width: 560px) {
-    grid-template-columns: 1fr;
-}
+@media (max-width: 560px) { grid-template-columns: 1fr; }
 ```
 
 ### Footer-Grid
 ```css
 display: grid;
-grid-template-columns: 2fr 1fr 1fr 1fr;
+grid-template-columns: 1fr 1fr 1fr;
 gap: 40px;
 
-@media (max-width: 980px) {
-    grid-template-columns: 1fr;
-}
+@media (max-width: 980px) { grid-template-columns: 1fr; }
 ```
 
 ---
@@ -227,9 +291,21 @@ gap: 40px;
 
 | Breakpoint | Breite | Anpassungen |
 |------------|--------|-------------|
-| Desktop | > 980px | Standard-Layout, 4 Spalten Grids |
-| Tablet | 560px - 980px | 2 Spalten Grids, Detail-Layout gestapelt |
-| Mobile | < 560px | Alles 1-spaltig, Navigation wrapped |
+| Desktop | > 980px | 3 Spalten Grids, Header-Padding 20px, Section 60px |
+| Tablet | 768px - 980px | 2 Spalten, Header-Padding 18px, Container 40px, Section 50px |
+| Mobile | < 560px | 1 Spalte, Header wraps, Container 20px, Section 40px |
+
+### Tablet-spezifisch
+- `.container { padding: 0 40px; }` — Mehr Abstand an den Raendern
+- `.header-inner { padding: 18px 0; }` — Grosserer Header
+- Navigation wird statisch (nicht mehr absolut zentriert)
+- Footer-Grid stapelt zu 1 Spalte
+
+### Mobile-spezifisch
+- `.header-inner { flex-wrap: wrap; justify-content: center; }`
+- Alle Grids auf 1 Spalte
+- Newsletter-Formular stapelt vertikal
+- Popup-Formular stapelt, max-height mit Scroll
 
 ---
 
@@ -237,10 +313,10 @@ gap: 40px;
 
 | Seite | Datei | Besonderheiten |
 |-------|-------|---------------|
-| Startseite | `index.html` | Hero, Bestseller, Kategorien, Videos, Newsletter |
-| Produkte | `products.html` | 12 Produkte, JS-Filter, URL-Parameter |
-| Produktdetail | `product.html` | Dynamisch via `?id=`, Bild, Video, Bestellformular |
-| Marken | `brands.html` | 6 Marken-Karten |
-| Quiz | `quiz.html` | Haartyp-Auswahl, JS-Empfehlungen |
-| Styling Guide | `styling-guide.html` | Video-Tutorials, Produktempfehlungen |
-| Kontakt | `contact.html` | Team, Formular mit Betreff-Dropdown, FAQ |
+| Startseite | `index.html` | Hero, Bestseller, Kategorien, Newsletter, Footer |
+| Produkte | `products.html` | 30 Produkte, CSS-only Filter (10 Kategorien) |
+| Produktdetail | `product.html` | 30 Sektionen, CSS `:target` Routing |
+| Marken | `brands.html` | 10+ Marken-Karten, Haartypen-Guide |
+| Kontakt | `contact.html` | Ueber uns, Kontaktformular, FAQ-Akkordeon |
+| Warenkorb | `cart.html` | localStorage, Mengen-Steuerung, Checkout |
+| Bestaetigung | `thankyou.html` | Bestellbestaetigung, Warenkorb wird geleert |

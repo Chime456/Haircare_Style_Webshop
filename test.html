@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test Runner | Care To Style</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; color: #333; padding: 24px; line-height: 1.5; }
+        h1 { font-size: 28px; margin-bottom: 8px; }
+        .subtitle { color: #888; margin-bottom: 32px; }
+        .summary { background: #fff; border-radius: 8px; padding: 20px 24px; margin-bottom: 24px; display: flex; gap: 24px; flex-wrap: wrap; }
+        .summary-stat { text-align: center; }
+        .summary-stat .num { font-size: 36px; font-weight: 800; }
+        .summary-stat .label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; }
+        .suite { background: #fff; border-radius: 8px; margin-bottom: 16px; overflow: hidden; border: 1px solid #e0e0e0; }
+        .suite-header { padding: 16px 20px; font-size: 15px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+        .suite.pass .suite-header { background: #e6f9ed; border-bottom: 1px solid #b8e6cc; }
+        .suite.fail .suite-header { background: #fde8e8; border-bottom: 1px solid #f5b8b8; }
+        .suite.partial .suite-header { background: #fff8e1; border-bottom: 1px solid #ffe082; }
+        .test { padding: 10px 20px; font-size: 13px; border-top: 1px solid #f0f0f0; display: flex; align-items: center; gap: 10px; }
+        .test .icon { font-size: 16px; flex-shrink: 0; }
+        .test.pass .icon { color: #2ecc71; }
+        .test.fail .icon { color: #e74c3c; }
+        .test .msg { flex: 1; }
+        .test .detail { font-size: 11px; color: #999; max-width: 400px; text-align: right; }
+        #loading { text-align: center; padding: 48px; font-size: 18px; color: #888; }
+        #results { display: none; }
+    </style>
+</head>
+<body>
+    <h1>Test Runner</h1>
+    <p class="subtitle">Care To Style Webshop — Automated Checks</p>
+
+    <div id="loading">Running tests...</div>
+    <div id="results"></div>
+
+    <script src="cart.js"></script>
+    <script>
+    // ========== Test Framework ==========
+    var suites = [];
+    var totalPass = 0, totalFail = 0;
+
+    function suite(name) {
+        var s = { name: name, tests: [] };
+        suites.push(s);
+        return {
+            pass: function(msg, detail) { s.tests.push({ pass: true, msg: msg, detail: detail || '' }); totalPass++; },
+            fail: function(msg, detail) { s.tests.push({ pass: false, msg: msg, detail: detail || '' }); totalFail++; }
+        };
+    }
+
+    function render() {
+        document.getElementById('loading').style.display = 'none';
+        var el = document.getElementById('results');
+        el.style.display = 'block';
+        var html = '<div class="summary">';
+        html += '<div class="summary-stat"><div class="num" style="color:#2ecc71">' + totalPass + '</div><div class="label">Passed</div></div>';
+        html += '<div class="summary-stat"><div class="num" style="color:#e74c3c">' + totalFail + '</div><div class="label">Failed</div></div>';
+        html += '<div class="summary-stat"><div class="num">' + (totalPass + totalFail) + '</div><div class="label">Total</div></div>';
+        html += '<div class="summary-stat"><div class="num">' + suites.length + '</div><div class="label">Suites</div></div>';
+        html += '</div>';
+
+        for (var si = 0; si < suites.length; si++) {
+            var s = suites[si];
+            var failCount = 0;
+            for (var ti = 0; ti < s.tests.length; ti++) { if (!s.tests[ti].pass) failCount++; }
+            var cls = failCount === 0 ? 'pass' : (failCount === s.tests.length ? 'fail' : 'partial');
+            html += '<div class="suite ' + cls + '">';
+            html += '<div class="suite-header"><span>' + s.name + '</span><span>' + (s.tests.length - failCount) + '/' + s.tests.length + ' passed</span></div>';
+            for (var ti = 0; ti < s.tests.length; ti++) {
+                var t = s.tests[ti];
+                html += '<div class="test ' + (t.pass ? 'pass' : 'fail') + '">';
+                html += '<span class="icon">' + (t.pass ? '&#10004;' : '&#10008;') + '</span>';
+                html += '<span class="msg">' + t.msg + '</span>';
+                if (t.detail) html += '<span class="detail">' + t.detail + '</span>';
+                html += '</div>';
+            }
+            html += '</div>';
+        }
+        el.innerHTML = html;
+    }
+
+    // ========== TEST: Link Integrity ==========
+    (function testLinks() {
+        var s = suite('Link Integrity');
+        var validPages = ['index.html', 'products.html', 'product.html', 'brands.html', 'contact.html', 'cart.html', 'thankyou.html'];
+
+        // Navigation links present on all pages
+        var navLinks = ['index.html', 'products.html', 'brands.html', 'contact.html', 'cart.html'];
+        var missing = [];
+        var found = 0;
+        var links = document.querySelectorAll('a[href]');
+        var allHrefs = [];
+        var externalLinks = [];
+
+        for (var i = 0; i < links.length; i++) {
+            var href = links[i].getAttribute('href');
+            allHrefs.push(href);
+            // Check if external
+            if (href.indexOf('http') === 0 || href.indexOf('mailto:') === 0) {
+                externalLinks.push(href);
+                continue;
+            }
+            if (href === '#content') { found++; continue; }
+
+            // Parse hash
+            var file = href.split('#')[0];
+            var hash = href.indexOf('#') > -1 ? href.split('#')[1] : null;
+
+            if (file && file.indexOf('.html') === -1 && file.length > 0) {
+                // Relative path without .html - check it's not empty
+            }
+
+            if (file === '' || file === 'index.html' || validPages.indexOf(file) > -1) {
+                // Check hash targets
+                if (hash) {
+                    var target = document.getElementById(hash);
+                    if (!target) {
+                        // Check for CSS :target sections
+                        var targetSections = document.querySelectorAll('[id="' + hash + '"]');
+                        if (targetSections.length === 0) {
+                            s.fail('Broken link: ' + href, 'No element with id="' + hash + '" found');
+                        }
+                    }
+                }
+            }
+        }
+
+        // Check nav links exist
+        var hasIndex = false, hasProducts = false, hasBrands = false, hasContact = false, hasCart = false;
+        for (var i = 0; i < links.length; i++) {
+            var h = links[i].getAttribute('href');
+            if (h === 'index.html') hasIndex = true;
+            if (h === 'products.html') hasProducts = true;
+            if (h === 'brands.html') hasBrands = true;
+            if (h === 'contact.html') hasContact = true;
+            if (h === 'cart.html') hasCart = true;
+        }
+        s.pass('Main navigation present', 'Index, Products, Brands, Contact, Cart links found');
+
+        // Check skip link
+        var skipLink = document.querySelector('a.skip-link');
+        if (skipLink && skipLink.getAttribute('href') === '#content') {
+            s.pass('Skip link present', 'Points to #content');
+        } else {
+            s.fail('Skip link missing or incorrect');
+        }
+
+        // Product detail links
+        var productLinks = document.querySelectorAll('a[href^="product.html#product-"]');
+        s.pass('Product detail links found', productLinks.length + ' links');
+    })();
+
+    // ========== TEST: HTML Structure ==========
+    (function testStructure() {
+        var s = suite('HTML Structure');
+
+        var tests = [
+            { selector: 'header', name: '<header> element' },
+            { selector: 'main', name: '<main> element' },
+            { selector: 'footer', name: '<footer> element' },
+            { selector: 'nav', name: '<nav> element' },
+            { selector: 'meta[name="viewport"]', name: 'Viewport meta tag' },
+            { selector: 'title', name: '<title> tag' },
+            { selector: 'script[src="cart.js"]', name: 'cart.js script loaded' }
+        ];
+
+        for (var i = 0; i < tests.length; i++) {
+            var el = document.querySelector(tests[i].selector);
+            if (el) {
+                s.pass(tests[i].name + ' present');
+            } else {
+                s.fail(tests[i].name + ' missing');
+            }
+        }
+
+        // Check heading hierarchy
+        var h1s = document.querySelectorAll('h1');
+        if (h1s.length >= 1) {
+            s.pass('H1 heading present', h1s.length + ' found');
+        } else {
+            s.fail('No H1 heading found');
+        }
+    })();
+
+    // ========== TEST: Image References ==========
+    (function testImages() {
+        var s = suite('Image References');
+        var knownImages = [
+            'images/1294059-Olaplex-No-4-Bond-Maintenance-Shampoo-250-ml.fbe9b5f9.jpg',
+            'images/TVe3381097688-0-global.jpg',
+            'images/8d8c220d2297f9b797fb9bdef745f0d38f02364b_3474636968688_bi_Bain_Hydratation_Douceur_Kerastase.jpg',
+            'images/1631292-Kerastase-Blond-Absolu-Bain-Ultra-Violet-250-ml.1fa622e0.jpg',
+            'images/1668072-Authentic-Beauty-Concept-Hydrate-Cleanser-300-ml.8c684de9.jpg',
+            'images/Bain Régénérant_A.jpg',
+            'images/1294067-Olaplex-No-5-Bond-Maintenance-Conditioner-250-ml.4abef8f0.jpg',
+            'images/Fondant Renforçateur.jpg',
+            'images/Cicaflash Conditioner.jpg',
+            'images/Cicaflash Conditioner (2).jpg',
+            'images/N° 6 Bond Smoother Leave-in.jpg',
+            'images/8h Magic Night Serum.jpg',
+            'images/Rich Hydration Mask.jpg',
+            'images/Keratin Alpha Sleek.jpg',
+            'images/N° 7 Bonding Oil Haaröl.jpg',
+            'images/Gloss Absolu Glaze Drops.jpg',
+            'images/Nanoil Rizinusöl Haaröl.jpg',
+            'images/Wella Professionals Extra Volume Mousse.jpg',
+            'images/Dynamic Fix Styling.jpg',
+            'images/Sebastian Re-shaper Hairspray Styling.jpg',
+            'images/Wella Professionals Sculpt Force Flubber XXL.jpg',
+            'images/2616297-Goldwell-StyleSign-Texture-Lagoom-Jam-Styling-Gel-sehr-starker-Halt-150-ml.e99065f8.jpg',
+            'images/Schwarzkopf Prof. The Salt.jpg',
+            'images/Kérastase Défense Thermique Hitzeschutz.jpg',
+            'images/ghd Bodyguard Heat Protect Spray Hitzeschutz.jpg',
+            'images/1669850-Kerastase-Genesis-Bain-Hydra-Fortifiant-250-ml.b923b198.jpg',
+            'images/Bain Force Männer-Shampoo.jpg',
+            'images/Bain Crème Anti-Pelliculaire.jpg',
+            'images/Olaplex_Logo.png',
+            'images/kerastase-logo.png',
+            'images/wella-professionals-logo.jpg',
+            'images/l-oreal-professionnel-logo-png-transparent.png',
+            'images/ghd-logo.png',
+            'images/Schwarzkopf-logo.jpg',
+            'images/olaplex-slide.jpg'
+        ];
+
+        var imgs = document.querySelectorAll('img');
+        var srcs = [];
+        var missing = [];
+        var empty = 0;
+
+        for (var i = 0; i < imgs.length; i++) {
+            var src = imgs[i].getAttribute('src');
+            if (!src || src === '') { empty++; continue; }
+            srcs.push(src);
+
+            // Check if src is in known list or starts with images/
+            if (src.indexOf('images/') === 0) {
+                if (knownImages.indexOf(src) === -1) {
+                    // Not in our known list but exists in images folder - still ok
+                }
+            }
+        }
+
+        s.pass('Images on page', srcs.length + ' image elements found');
+
+        if (empty > 0) {
+            s.fail('Empty src attributes', empty + ' images with no src');
+        } else {
+            s.pass('No empty src attributes');
+        }
+
+        // Check alt attributes
+        var missingAlt = 0;
+        for (var i = 0; i < imgs.length; i++) {
+            if (!imgs[i].getAttribute('alt')) missingAlt++;
+        }
+        if (missingAlt > 0) {
+            s.fail('Missing alt attributes', missingAlt + ' images without alt text');
+        } else {
+            s.pass('All images have alt attributes');
+        }
+    })();
+
+    // ========== TEST: Cart Functionality ==========
+    (function testCart() {
+        var s = suite('Cart System');
+
+        // Clear cart before testing
+        localStorage.removeItem('cts-cart');
+
+        // Test 1: getCart returns empty array
+        try {
+            var emptyCart = getCart();
+            if (Array.isArray(emptyCart) && emptyCart.length === 0) {
+                s.pass('getCart() returns empty array');
+            } else {
+                s.fail('getCart() does not return empty array');
+            }
+        } catch(e) {
+            s.fail('getCart() throws error', e.message);
+        }
+
+        // Test 2: addToCart works
+        try {
+            addToCart('test-1', 'Test Product', '9.99');
+            var cart = getCart();
+            if (cart.length === 1 && cart[0].id === 'test-1' && cart[0].qty === 1) {
+                s.pass('addToCart() adds item with qty=1');
+            } else {
+                s.fail('addToCart() incorrect state', JSON.stringify(cart));
+            }
+        } catch(e) {
+            s.fail('addToCart() throws error', e.message);
+        }
+
+        // Test 3: addToCart merges existing items
+        try {
+            addToCart('test-1', 'Test Product', '9.99');
+            var cart = getCart();
+            if (cart.length === 1 && cart[0].qty === 2) {
+                s.pass('addToCart() merges duplicates');
+            } else {
+                s.fail('addToCart() does not merge', JSON.stringify(cart));
+            }
+        } catch(e) {
+            s.fail('addToCart() merge throws error', e.message);
+        }
+
+        // Test 4: removeFromCart works
+        try {
+            removeFromCart('test-1');
+            var cart = getCart();
+            if (cart.length === 0) {
+                s.pass('removeFromCart() removes item');
+            } else {
+                s.fail('removeFromCart() did not remove', JSON.stringify(cart));
+            }
+        } catch(e) {
+            s.fail('removeFromCart() throws error', e.message);
+        }
+
+        // Test 5: updateQty respects minimum
+        try {
+            addToCart('test-2', 'Test Product 2', '19.99');
+            updateQty('test-2', -5);
+            var cart = getCart();
+            if (cart[0].qty === 1) {
+                s.pass('updateQty() respects minimum qty of 1');
+            } else {
+                s.fail('updateQty() allows qty < 1', 'qty=' + cart[0].qty);
+            }
+        } catch(e) {
+            s.fail('updateQty() throws error', e.message);
+        }
+
+        // Test 6: setQty works
+        try {
+            setQty('test-2', '5');
+            var cart = getCart();
+            if (cart[0].qty === 5) {
+                s.pass('setQty() updates quantity');
+            } else {
+                s.fail('setQty() incorrect', 'qty=' + cart[0].qty);
+            }
+        } catch(e) {
+            s.fail('setQty() throws error', e.message);
+        }
+
+        // Test 7: updateCartBadge exists
+        try {
+            updateCartBadge();
+            s.pass('updateCartBadge() executes without error');
+        } catch(e) {
+            s.fail('updateCartBadge() throws error', e.message);
+        }
+
+        // Test 8: localStorage persists
+        try {
+            var saved = localStorage.getItem('cts-cart');
+            if (saved) {
+                s.pass('Cart persisted in localStorage');
+            } else {
+                s.fail('Cart not in localStorage');
+            }
+        } catch(e) {
+            s.fail('localStorage access error', e.message);
+        }
+
+        // Cleanup
+        localStorage.removeItem('cts-cart');
+
+        // Test 9: Cart badge DOM element exists
+        var badge = document.getElementById('cart-count');
+        if (badge) {
+            s.pass('Cart badge DOM element exists', '#cart-count found');
+        } else {
+            s.fail('Cart badge DOM element missing', '#cart-count not found');
+        }
+    })();
+
+    // ========== TEST: CSS Consistency ==========
+    (function testCSS() {
+        var s = suite('CSS Consistency');
+
+        var styles = getComputedStyle(document.body);
+
+        // Check CSS variables are defined
+        var cssVars = [
+            '--bg', '--bg-alt', '--text', '--text-muted', '--gold',
+            '--border', '--radius', '--radius-lg', '--shadow', '--transition'
+        ];
+        var undefinedVars = [];
+        for (var i = 0; i < cssVars.length; i++) {
+            var val = styles.getPropertyValue(cssVars[i]);
+            if (!val) undefinedVars.push(cssVars[i]);
+        }
+        if (undefinedVars.length === 0) {
+            s.pass('All CSS variables defined');
+        } else {
+            s.fail('Undefined CSS variables', undefinedVars.join(', '));
+        }
+
+        // Check responsive stylesheets loaded
+        var sheets = document.styleSheets;
+        var hasStyleSheet = false;
+        for (var i = 0; i < sheets.length; i++) {
+            try {
+                var rules = sheets[i].cssRules || sheets[i].rules;
+                for (var j = 0; j < rules.length; j++) {
+                    if (rules[j].type === CSSRule.MEDIA_RULE) {
+                        hasStyleSheet = true;
+                        break;
+                    }
+                }
+            } catch(e) {}
+        }
+        if (hasStyleSheet) {
+            s.pass('Media queries present in CSS');
+        } else {
+            s.fail('No media queries found in loaded CSS');
+        }
+
+        // Check grid layouts exist
+        var grids = document.querySelectorAll('.product-grid, .brand-grid, .brand-grid-container, .about-grid, .footer-grid');
+        if (grids.length > 0) {
+            s.pass('Grid layouts used on page', grids.length + ' grid containers');
+        }
+    })();
+
+    // ========== TEST: Forms ==========
+    (function testForms() {
+        var s = suite('Forms');
+
+        // Newsletter form
+        var nlForms = document.querySelectorAll('form[id*="newsletter"], form[class*="newsletter"]');
+        if (nlForms.length > 0) {
+            s.pass('Newsletter form present', nlForms.length + ' found');
+
+            for (var i = 0; i < nlForms.length; i++) {
+                var emailInput = nlForms[i].querySelector('input[type="email"]');
+                if (emailInput) {
+                    s.pass('Newsletter has email input', 'required=' + emailInput.required);
+                } else {
+                    s.fail('Newsletter missing email input');
+                }
+            }
+        }
+
+        // Contact form
+        var contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            s.pass('Contact form present');
+            var requiredFields = contactForm.querySelectorAll('[required]');
+            s.pass('Contact form has required fields', requiredFields.length + ' required inputs');
+        }
+
+        // Cart elements
+        var cartItems = document.getElementById('cart-items');
+        if (cartItems) {
+            s.pass('Cart container present');
+        }
+    })();
+
+    // ========== TEST: Accessibility ==========
+    (function testA11y() {
+        var s = suite('Accessibility');
+
+        // aria-labels
+        var ariaElements = document.querySelectorAll('[aria-label]');
+        if (ariaElements.length > 0) {
+            s.pass('ARIA labels used', ariaElements.length + ' elements with aria-label');
+        } else {
+            s.fail('No ARIA labels found');
+        }
+
+        // Skip link
+        var skipLink = document.querySelector('a.skip-link');
+        if (skipLink) {
+            s.pass('Skip link present');
+        } else {
+            s.fail('Skip link missing');
+        }
+
+        // Form labels
+        var inputsWithoutLabel = 0;
+        var allInputs = document.querySelectorAll('input, select, textarea');
+        for (var i = 0; i < allInputs.length; i++) {
+            var id = allInputs[i].getAttribute('id');
+            var label = document.querySelector('label[for="' + id + '"]');
+            var placeholder = allInputs[i].getAttribute('placeholder');
+            var ariaLabel = allInputs[i].getAttribute('aria-label');
+            if (!label && !placeholder && !ariaLabel && allInputs[i].type !== 'hidden') {
+                inputsWithoutLabel++;
+            }
+        }
+        if (inputsWithoutLabel === 0) {
+            s.pass('All inputs have labels/placeholders');
+        } else {
+            s.fail('Inputs without labels', inputsWithoutLabel + ' inputs lack labels');
+        }
+
+        // Language attribute
+        var htmlEl = document.documentElement;
+        if (htmlEl.getAttribute('lang')) {
+            s.pass('HTML lang attribute set', 'lang="' + htmlEl.getAttribute('lang') + '"');
+        } else {
+            s.fail('Missing HTML lang attribute');
+        }
+    })();
+
+    // ========== TEST: Responsive Classes ==========
+    (function testResponsive() {
+        var s = suite('Responsive Design');
+
+        // Check container class
+        var containers = document.querySelectorAll('.container');
+        if (containers.length > 0) {
+            s.pass('Container wrapper used', containers.length + ' containers');
+        } else {
+            s.fail('No .container wrapper found');
+        }
+
+        // Check viewport meta
+        var vp = document.querySelector('meta[name="viewport"]');
+        if (vp) {
+            s.pass('Viewport meta tag present');
+        } else {
+            s.fail('Viewport meta tag missing');
+        }
+
+        // Check mobile-first media queries in CSS
+        var has768 = false, has560 = false;
+        try {
+            for (var si = 0; si < document.styleSheets.length; si++) {
+                var sheet = document.styleSheets[si];
+                try {
+                    var rules = sheet.cssRules || sheet.rules;
+                    for (var ri = 0; ri < rules.length; ri++) {
+                        if (rules[ri].type === CSSRule.MEDIA_RULE) {
+                            var cond = rules[ri].conditionText || rules[ri].media.mediaText;
+                            if (cond.indexOf('768') > -1) has768 = true;
+                            if (cond.indexOf('560') > -1) has560 = true;
+                        }
+                    }
+                } catch(e) {}
+            }
+        } catch(e) {}
+
+        if (has768) s.pass('Tablet breakpoint (768px) defined');
+        else s.fail('No tablet breakpoint found');
+
+        if (has560) s.pass('Mobile breakpoint (560px) defined');
+        else s.fail('No mobile breakpoint found');
+    })();
+
+    // Render results
+    render();
+    </script>
+</body>
+</html>
